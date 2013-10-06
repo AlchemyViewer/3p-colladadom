@@ -370,7 +370,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_samplerDEPTH_common_complexType &operator=( const domFx_samplerDEPTH_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_samplerDEPTH_common_complexType &operator=(const domFx_samplerDEPTH_common_complexType&) { return *this; }
 };
 
 /**
@@ -394,7 +394,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_samplerDEPTH_common &operator=( const domFx_samplerDEPTH_common &cpy ) { (void)cpy; return *this; }
+	domFx_samplerDEPTH_common &operator=(const domFx_samplerDEPTH_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

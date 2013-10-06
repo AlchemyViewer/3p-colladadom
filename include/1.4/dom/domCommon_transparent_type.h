@@ -46,7 +46,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_transparent_type_complexType &operator=( const domCommon_transparent_type_complexType &cpy ) { (void)cpy; return *this; }
+	domCommon_transparent_type_complexType &operator=(const domCommon_transparent_type_complexType&) { return *this; }
 };
 
 /**
@@ -83,7 +83,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_transparent_type &operator=( const domCommon_transparent_type &cpy ) { (void)cpy; return *this; }
+	domCommon_transparent_type &operator=(const domCommon_transparent_type&) { return *this; }
 
 public: // STATIC METHODS
 	/**

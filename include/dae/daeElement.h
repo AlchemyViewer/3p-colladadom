@@ -57,7 +57,7 @@ protected:
 
 protected:
 	daeElement( const daeElement &cpy ) : daeRefCountedObj() { (void)cpy; };
-	virtual daeElement &operator=( const daeElement &cpy ) { (void)cpy; return *this; }
+	daeElement &operator=(const daeElement&) { return *this; }
 
 	void init();
 

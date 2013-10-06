@@ -703,7 +703,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domProfile_COMMON &operator=( const domProfile_COMMON &cpy ) { (void)cpy; return *this; }
+	domProfile_COMMON &operator=(const domProfile_COMMON&) { return *this; }
 
 public: // STATIC METHODS
 	/**

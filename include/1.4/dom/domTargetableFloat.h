@@ -70,7 +70,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domTargetableFloat_complexType &operator=( const domTargetableFloat_complexType &cpy ) { (void)cpy; return *this; }
+	domTargetableFloat_complexType &operator=(const domTargetableFloat_complexType&) { return *this; }
 };
 
 /**
@@ -107,7 +107,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domTargetableFloat &operator=( const domTargetableFloat &cpy ) { (void)cpy; return *this; }
+	domTargetableFloat &operator=(const domTargetableFloat&) { return *this; }
 
 public: // STATIC METHODS
 	/**

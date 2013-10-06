@@ -222,7 +222,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_newparam_common_complexType &operator=( const domFx_newparam_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_newparam_common_complexType &operator=(const domFx_newparam_common_complexType&) { return *this; }
 };
 
 /**
@@ -259,7 +259,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_newparam_common &operator=( const domFx_newparam_common &cpy ) { (void)cpy; return *this; }
+	domFx_newparam_common &operator=(const domFx_newparam_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

@@ -79,7 +79,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInputLocal_complexType &operator=( const domInputLocal_complexType &cpy ) { (void)cpy; return *this; }
+	domInputLocal_complexType &operator=(const domInputLocal_complexType&) { return *this; }
 };
 
 /**
@@ -137,7 +137,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInputLocal &operator=( const domInputLocal &cpy ) { (void)cpy; return *this; }
+	domInputLocal &operator=(const domInputLocal&) { return *this; }
 
 public: // STATIC METHODS
 	/**

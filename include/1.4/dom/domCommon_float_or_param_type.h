@@ -198,7 +198,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_float_or_param_type_complexType &operator=( const domCommon_float_or_param_type_complexType &cpy ) { (void)cpy; return *this; }
+	domCommon_float_or_param_type_complexType &operator=(const domCommon_float_or_param_type_complexType&) { return *this; }
 };
 
 /**
@@ -222,7 +222,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_float_or_param_type &operator=( const domCommon_float_or_param_type &cpy ) { (void)cpy; return *this; }
+	domCommon_float_or_param_type &operator=(const domCommon_float_or_param_type&) { return *this; }
 
 public: // STATIC METHODS
 	/**

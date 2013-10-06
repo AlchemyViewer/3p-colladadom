@@ -87,7 +87,7 @@ public:
 			/**
 			 * Overloaded assignment operator
 			 */
-			virtual domAuthor &operator=( const domAuthor &cpy ) { (void)cpy; return *this; }
+			domAuthor &operator=(const domAuthor&) { return *this; }
 
 		public: // STATIC METHODS
 			/**

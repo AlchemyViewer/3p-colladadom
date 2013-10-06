@@ -38,7 +38,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_profile_abstract &operator=( const domFx_profile_abstract &cpy ) { (void)cpy; return *this; }
+	domFx_profile_abstract &operator=(const domFx_profile_abstract&) { return *this; }
 
 public: // STATIC METHODS
 	/**

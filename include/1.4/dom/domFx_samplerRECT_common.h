@@ -631,7 +631,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_samplerRECT_common_complexType &operator=( const domFx_samplerRECT_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_samplerRECT_common_complexType &operator=(const domFx_samplerRECT_common_complexType&) { return *this; }
 };
 
 /**
@@ -655,7 +655,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_samplerRECT_common &operator=( const domFx_samplerRECT_common &cpy ) { (void)cpy; return *this; }
+	domFx_samplerRECT_common &operator=(const domFx_samplerRECT_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

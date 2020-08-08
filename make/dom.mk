@@ -10,7 +10,7 @@ src += $(wildcard src/$(colladaVersion)/dom/*.cpp)
 
 includeOpts := -Istage/packages/include \
 	-Istage/packages/include/zlib \
-	-Istage/packages/include/pcre \
+	-Istage/packages/include/uriparser \
 	-Istage/packages/include/libxml2 \
 	-Istage/packages/include/minizip \
 	-Iinclude \
@@ -50,8 +50,12 @@ endif
 ifeq ($(os),windows)
 ccFlags += -DPCRE_STATIC
 else
-includeOpts += -Istage/packages/include/pcre
-libOpts += $(addprefix stage/packages/lib/release/,libpcrecpp.a libpcre.a )
+includeOpts += -Istage/packages/include
+ifeq ($(conf),debug)
+libOpts += $(addprefix stage/packages/lib/debug/,liburiparser.a )
+else
+libOpts += $(addprefix stage/packages/lib/release/,liburiparser.a )
+endif
 endif
 
 # For mingw: add boost

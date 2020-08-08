@@ -33,7 +33,6 @@ endif
 
 includeOpts += -Istage/packages/include \
 	-Istage/packages/include/zlib \
-	-Istage/packages/include/pcre \
 	-Istage/packages/include/libxml2 \
 	-Istage/packages/include/minizip
 libOpts += -Lstage/packages/lib/$(conf)/
@@ -46,11 +45,6 @@ else ifeq ($(os),mac)
 includeOpts += -I$(installPrefix)/$(domFramework)/Headers
 endif
 dependentLibs += $(domName)
-
-# PCRE defs
-ifeq ($(os),ps3)
-libOpts += $(addprefix external-libs/pcre/lib/$(os)/,libpcrecpp.a libpcre.a)
-endif
 
 # TinyXml defs
 ifneq ($(findstring tinyxml,$(xmlparsers)),)

@@ -764,6 +764,10 @@ string cdom::assembleUri(const string& scheme,
 	if (!fragment.empty())
 		uri += "#" + fragment;
 
+    if( forceLibxmlCompatible ) {
+        // unfortunately libxml cannot parse %20 in xmlReaderForFile, so have to replace %20 with space
+        uri = replace(uri, "%20", " ");
+    }
 	return uri;
 }
 

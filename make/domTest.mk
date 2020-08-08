@@ -58,7 +58,7 @@ endif
 # Boost defs
 # Test programs use some deprecated interfaces...
 ifeq ($(os),linux)
-libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
+libOpts += -lboost_filesystem-mt$(debugSuffix)$(archsupport)
 else ifeq ($(os),mac)
 libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
 else

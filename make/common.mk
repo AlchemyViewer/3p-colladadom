@@ -10,7 +10,7 @@ endif
 
 # Put -Wall at the *front* of the ccFlags list. That way if CXXFLAGS specifies
 # any -Wno-something warning suppression flags, they won't be overridden.
-ccFlags := -Wall $(CXXFLAGS)
+ccFlags := -Wall
 ifeq ($(conf),debug)
 ccFlags += -g -D_DEBUG
 debugSuffix := -d
@@ -18,6 +18,7 @@ else
 ccFlags += -O2 -DNDEBUG
 debugSuffix :=
 endif
+ccFlags += $(CXXFLAGS)
 
 ifeq ($(arch),x86_64)
 archsupport := -x64

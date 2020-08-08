@@ -160,11 +160,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>04ea73b7232b180ac5cfa5defdd7f101</string>
+              <string>8b14a29add0391b031b02a71fb8d5543</string>
               <key>hash_algorithm</key>
               <string>md5</string>
               <key>url</key>
-              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/linux64/debian10/uriparser-0.9.4-linux64-202210337.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/linux64/debian10/uriparser-0.9.4-linux64-202210451.tar.bz2</string>
             </map>
             <key>name</key>
             <string>linux64</string>

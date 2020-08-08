@@ -63,7 +63,6 @@ endif
 
 # Boost defs
 # Test programs use some deprecated interfaces...
-ccFlags += -DBOOST_FILESYSTEM_DEPRECATED
 ifeq ($(os),linux)
 libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
 else ifeq ($(os),mac)

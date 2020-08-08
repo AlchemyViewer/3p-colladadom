@@ -34,9 +34,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>8e7ee97c3083f44385b09420655ebd04</string>
+              <string>9d8367d1eb5c021a63557fcf7a60b12d</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/892/1989/boost-1.57-linux64-500883.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/boost/linux64/debian10/boost-1.73-linux64-202201735.tar.bz2</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -67,7 +69,7 @@
           </map>
         </map>
         <key>version</key>
-        <string>1.72</string>
+        <string>1.73</string>
       </map>
       <key>libxml2</key>
       <map>
@@ -100,9 +102,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>740fc93f195c77b3a0c0800b31878ecb</string>
+              <string>99410545a3be0d58b5ac3db37c6da30e</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/890/1968/libxml2-2.9.4.500877-linux64-500877.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/libxml2/linux64/debian10/libxml2-2.9.10.202210350-linux64-202210350.tar.bz2</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -133,12 +137,46 @@
           </map>
         </map>
         <key>version</key>
-        <string>2.9.4.539866</string>
+        <string>2.9.10.202210350</string>
+      </map>
+      <key>uriparser</key>
+      <map>
+        <key>canonical_repo</key>
+        <string>https://git.alchemyviewer.org/alchemy/thirdparty/3p-uriparser</string>
+        <key>copyright</key>
+        <string>Copyright (C) 2007, Weijia Song &lt;songweijia@gmail.com&gt;, Sebastian Pipping &lt;webmaster@hartwork.org&gt;</string>
+        <key>description</key>
+        <string>uriparser is a strictly RFC 3986 compliant URI parsing and handling library written in C. uriparser is cross-platform, fast, supports Unicode and is licensed under the New BSD license.</string>
+        <key>license</key>
+        <string>New BSD license</string>
+        <key>license_file</key>
+        <string>LICENSES/uriparser.txt</string>
+        <key>name</key>
+        <string>uriparser</string>
+        <key>platforms</key>
+        <map>
+          <key>linux64</key>
+          <map>
+            <key>archive</key>
+            <map>
+              <key>hash</key>
+              <string>04ea73b7232b180ac5cfa5defdd7f101</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
+              <key>url</key>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/linux64/debian10/uriparser-0.9.4-linux64-202210337.tar.bz2</string>
+            </map>
+            <key>name</key>
+            <string>linux64</string>
+          </map>
+        </map>
+        <key>version</key>
+        <string>0.9.4</string>
       </map>
       <key>zlib</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (C) 1995-2013 Jean-loup Gailly and Mark Adler</string>
+        <string>Copyright (C) 1995-2017 Jean-loup Gailly and Mark Adler</string>
         <key>description</key>
         <string>Zlib Data Compression Library</string>
         <key>license</key>
@@ -166,9 +204,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>dab6be8b0596c1e3354f2b6d41335131</string>
+              <string>5d7866be22eaca6d38cfd0bb4e411fb0</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/866/1898/zlib-1.2.8.500857-linux64-500857.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/zlib/linux64/debian10/zlib-1.2.11.202200500-linux64-202200500.tar.bz2</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -199,7 +239,7 @@
           </map>
         </map>
         <key>version</key>
-        <string>1.2.8.538988</string>
+        <string>1.2.11.202200500</string>
       </map>
     </map>
     <key>package_description</key>

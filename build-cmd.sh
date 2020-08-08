@@ -156,7 +156,17 @@ case "$AUTOBUILD_PLATFORM" in
 ##      fi
 
         # Default target per --address-size
-        opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE $LL_BUILD_RELEASE}"
+        opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE}"
+        DEBUG_COMMON_FLAGS="$opts -Og -g -fPIC -DPIC"
+        RELEASE_COMMON_FLAGS="$opts -O3 -g -fPIC -fstack-protector-strong -DPIC -D_FORTIFY_SOURCE=2"
+        DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
+        RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
+        DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"
+        RELEASE_CXXFLAGS="$RELEASE_COMMON_FLAGS -std=c++17"
+        DEBUG_CPPFLAGS="-DPIC"
+        RELEASE_CPPFLAGS="-DPIC -D_FORTIFY_SOURCE=2"
+        
+        JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
 
         # Handle any deliberate platform targeting
         if [ -z "${TARGET_CPPFLAGS:-}" ]; then
@@ -168,15 +178,34 @@ case "$AUTOBUILD_PLATFORM" in
         fi
 
         libdir="$top/stage"
+
+        mkdir -p "$libdir"/lib/debug
+
+        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
+
+        make -j$JOBS \
+            conf=debug \
+            LDFLAGS="$opts" \
+            CFLAGS="$DEBUG_CFLAGS" \
+            CXXFLAGS="$DEBUG_CXXFLAGS" \
+            arch="$AUTOBUILD_CONFIGURE_ARCH"
+
+        # conditionally run unit tests
+        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+            "build/linux-${collada_version}-d/domTest" -all
+        fi
+
+        cp -a "build/linux-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/lib/debug/
+    
         mkdir -p "$libdir"/lib/release
 
         make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
 
-        make \
+        make -j$JOBS \
             conf=release \
             LDFLAGS="$opts" \
-            CFLAGS="$opts" \
-            CXXFLAGS="$opts" \
+            CFLAGS="$RELEASE_CFLAGS" \
+            CXXFLAGS="$RELEASE_CXXFLAGS" \
             arch="$AUTOBUILD_CONFIGURE_ARCH"
 
         # conditionally run unit tests

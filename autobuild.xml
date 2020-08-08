@@ -342,6 +342,7 @@
           </map>
           <key>manifest</key>
           <array>
+            <string>lib/debug/*.a</string>
             <string>lib/release/*.a</string>
           </array>
           <key>name</key>

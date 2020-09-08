@@ -48,9 +48,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>097d04c5b064c4be4bc9edb885509a94</string>
+              <string>871888bb0d0aae331f00d31e16d64438</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/56321/526797/boost-1.72-windows-539869.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/boost/windows/boost-1.74-windows-312.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -60,16 +62,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>748c4d47cced7ba2b210eb6d0ed33497</string>
+              <string>33e4a6887d32672ef2c0e2dfcac4ad9c</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/56320/526777/boost-1.72-windows64-539869.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/boost/windows64/boost-1.74-windows64-312.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>1.73</string>
+        <string>1.74</string>
       </map>
       <key>libxml2</key>
       <map>
@@ -116,9 +120,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>1b7b979a8387fbb0f278dc681558b9ef</string>
+              <string>6d8971e70b8bf0869c00ab6bced37cd9</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/56316/526755/libxml2-2.9.4.539866-windows-539866.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/libxml2/windows/libxml2-2.9.10.313-windows-313.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -128,16 +134,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>4f8ff97d6a9ab350306b62eec8adc810</string>
+              <string>ecc9d50d2d5e7c3c5bec32586b2fb83c</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/56314/526748/libxml2-2.9.4.539866-windows64-539866.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/libxml2/windows64/libxml2-2.9.10.313-windows64-313.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>2.9.10.202210350</string>
+        <string>2.9.10.313</string>
       </map>
       <key>uriparser</key>
       <map>
@@ -168,6 +176,34 @@
             </map>
             <key>name</key>
             <string>linux64</string>
+          </map>
+          <key>windows</key>
+          <map>
+            <key>archive</key>
+            <map>
+              <key>hash</key>
+              <string>cc6ed6acc98c9ea36b14c3186002c38a</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
+              <key>url</key>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/windows/uriparser-0.9.4-windows-310.tar.bz2</string>
+            </map>
+            <key>name</key>
+            <string>windows</string>
+          </map>
+          <key>windows64</key>
+          <map>
+            <key>archive</key>
+            <map>
+              <key>hash</key>
+              <string>4d83a9d415212138f7ddb656e490b0d5</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
+              <key>url</key>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/windows64/uriparser-0.9.4-windows64-310.tar.bz2</string>
+            </map>
+            <key>name</key>
+            <string>windows64</string>
           </map>
         </map>
         <key>version</key>
@@ -218,9 +254,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>ebdb07d4aaa5312005a8773f625032a4</string>
+              <string>23ba44e15affc13b15717f02d98ed61e</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/55048/512031/zlib-1.2.8.538988-windows-538988.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/zlib/windows/zlib-1.2.11.308-windows-308.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -230,16 +268,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>0ac95f3dece7d575ba45cf5728f53eea</string>
+              <string>b231c0fd98a151a66c890a4bb29cfea3</string>
+              <key>hash_algorithm</key>
+              <string>md5</string>
               <key>url</key>
-              <string>http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/55047/512024/zlib-1.2.8.538988-windows64-538988.tar.bz2</string>
+              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/zlib/windows64/zlib-1.2.11.308-windows64-308.tar.bz2</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>1.2.11.202200500</string>
+        <string>1.2.11.308</string>
       </map>
     </map>
     <key>package_description</key>

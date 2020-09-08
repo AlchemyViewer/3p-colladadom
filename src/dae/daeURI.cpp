@@ -731,7 +731,7 @@ bool cdom::parseUriRef(const string& uriRef,
         scheme = fromRange(uri.scheme);
         authority = fromRange(uri.hostText);
         path = fromList(uri.pathHead, "/");
-        if (uri.absolutePath != URI_TRUE and uri.hostText.first == NULL)
+        if (uri.absolutePath != URI_TRUE && uri.hostText.first == NULL)
             path = path.erase(0, 1);
         query = fromRange(uri.query);
         fragment = fromRange(uri.fragment);

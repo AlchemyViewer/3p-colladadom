@@ -413,7 +413,8 @@
           </map>
           <key>manifest</key>
           <array>
-            <string>lib/release/*-s.lib</string>
+            <string>lib/debug/*.*</string>
+            <string>lib/release/*.*</string>
           </array>
           <key>name</key>
           <string>windows</string>

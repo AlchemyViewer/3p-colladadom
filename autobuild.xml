@@ -163,16 +163,30 @@
         <string>uriparser</string>
         <key>platforms</key>
         <map>
+          <key>darwin64</key>
+          <map>
+            <key>archive</key>
+            <map>
+              <key>hash</key>
+              <string>860b03d04da117ec8fd5e56cbf10ece213e4880c7f02e07ddffa23e4c4c0d1333a1de5be960569ab71b4fbb52ea90255</string>
+              <key>hash_algorithm</key>
+              <string>sha3_384</string>
+              <key>url</key>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser-655/0.9.4/uriparser-0.9.4-darwin64-655.tar.xz</string>
+            </map>
+            <key>name</key>
+            <string>darwin64</string>
+          </map>
           <key>linux64</key>
           <map>
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>66328f420630b1c67c7d68ca734bd557</string>
+              <string>f4b130c9d0fa4a8bbe407b2fdd65acfa6be1de2d01082d49cf23bc84f1b9069cf0a76d4334e232ecc0f02042b699ae64</string>
               <key>hash_algorithm</key>
-              <string>md5</string>
+              <string>sha3_384</string>
               <key>url</key>
-              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/linux64/debian10/uriparser-0.9.4-linux64-202210514.tar.bz2</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser-655/0.9.4/uriparser-0.9.4-linux64-655.tar.xz</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -182,11 +196,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>cc6ed6acc98c9ea36b14c3186002c38a</string>
+              <string>1c9aaaabd10a4db5a3e4104448db6a7213b954f5069ceaa12b1f550b9fa6b9b4414768e39ab8317604cab75f4021da68</string>
               <key>hash_algorithm</key>
-              <string>md5</string>
+              <string>sha3_384</string>
               <key>url</key>
-              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/windows/uriparser-0.9.4-windows-310.tar.bz2</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser-655/0.9.4/uriparser-0.9.4-windows-655.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -196,11 +210,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>4d83a9d415212138f7ddb656e490b0d5</string>
+              <string>f2ce84167d065d9105fcb76686664dde6965e16db49ca71acecf07f2452e16bc4ba1a14fe8641d1bf275bc9b67a413b7</string>
               <key>hash_algorithm</key>
-              <string>md5</string>
+              <string>sha3_384</string>
               <key>url</key>
-              <string>https://pkg.alchemyviewer.org/repository/autobuild-external/uriparser/windows64/uriparser-0.9.4-windows64-310.tar.bz2</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser-655/0.9.4/uriparser-0.9.4-windows64-655.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows64</string>

@@ -47,8 +47,7 @@ dom_major="$(sed -n -E 's/^ *domMajorVersion *:= *([0-9]+) *$/\1/p' "$top/Makefi
 dom_minor="$(sed -n -E 's/^ *domMinorVersion *:= *([0-9]+) *$/\1/p' "$top/Makefile")"
 dom_version="$dom_major.$dom_minor"
 dom_shortver="$dom_major$dom_minor"
-build=${AUTOBUILD_BUILD_ID:=0}
-echo "${dom_version}.${build}" > "${stage}/VERSION.txt"
+echo "${dom_version}.0" > "${stage}/VERSION.txt"
 
 case "$AUTOBUILD_PLATFORM" in
 

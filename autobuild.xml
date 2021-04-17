@@ -100,11 +100,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>6928c5fc67baf1d9f8ec6d7635f8e5772ff24fa47a77c71a193fdddf331d008a9acbbf1794d227d895cf64d1a4247557</string>
+              <string>5f0a6fd2b066e12545fb443c5dd3fecb8b7fbbab0f44d76d9fffa69d11a86c4466c7bf69d58016b965478f601dc02c51</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-817/2.9.10/libxml2-2.9.10-darwin64-817.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-822/2.9.10/libxml2-2.9.10-darwin64-822.tar.xz</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -128,11 +128,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>5d174aeffc531da6489dd176d78c3afd1e0a2b85a6944434ff03769e330513d5c65c2ca26a0b864ac253e12981ba371f</string>
+              <string>8e519e5cde47b0a0be589bd9742b9e3905e00a81edba81d343590e4056660263c53d7eed965ac85aa38629fd1ff7d19f</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-817/2.9.10/libxml2-2.9.10-windows-817.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-822/2.9.10/libxml2-2.9.10-windows-822.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -142,11 +142,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>2dc54311b2e9a85f43f75ea98a59fdad9b8afee73b6f49358bbf6fc8159899cb86e3018e8db9e0a6a642eab05e480734</string>
+              <string>f46d0334b856b1370d6fa68fb6743deff83ae3e5ef77daf983bb4817f84d125c58d4ae3915e43c18ac2953283f9374b6</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-817/2.9.10/libxml2-2.9.10-windows64-817.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2-822/2.9.10/libxml2-2.9.10-windows64-822.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows64</string>

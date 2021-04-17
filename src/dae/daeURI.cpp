@@ -724,10 +724,8 @@ bool cdom::parseUriRef(const string& uriRef,
                        string& path,
                        string& query,
                        string& fragment) {
-    UriParserStateA state;
     UriUriA uri;
-    state.uri = &uri;
-    if ( uriParseUriA(&state, uriRef.c_str()) == 0 ) {
+    if (uriParseSingleUriA(&uri, uriRef.c_str(), NULL) == 0 ) {
         scheme = fromRange(uri.scheme);
         authority = fromRange(uri.hostText);
         path = fromList(uri.pathHead, "/");

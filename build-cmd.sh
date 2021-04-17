@@ -80,14 +80,13 @@ case "$AUTOBUILD_PLATFORM" in
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            cp -a $stage/packages/lib/debug/*dll "build/$debugbuilddir/"
             "build/$debugbuilddir/domTest.exe" -all
         fi
 
         # stage the good bits
         mkdir -p "$stage"/lib/debug
 
-        debuglibname="libcollada${collada_shortver}dom${dom_shortver}-d"
+        debuglibname="libcollada${collada_shortver}dom${dom_shortver}-sd"
         cp -a build/$debugbuilddir/$debuglibname.* "$stage"/lib/debug/
 
         # Release Build
@@ -95,14 +94,13 @@ case "$AUTOBUILD_PLATFORM" in
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            cp -a $stage/packages/lib/release/*dll "build/$relbuilddir/"
             "build/$relbuilddir/domTest.exe" -all
         fi
 
         # stage the good bits
         mkdir -p "$stage"/lib/release
 
-        rellibname="libcollada${collada_shortver}dom${dom_shortver}"
+        rellibname="libcollada${collada_shortver}dom${dom_shortver}-s"
         cp -a build/$relbuilddir/$rellibname.* "$stage"/lib/release/
     ;;
 

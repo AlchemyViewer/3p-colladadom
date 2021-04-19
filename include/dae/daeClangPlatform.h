@@ -6,18 +6,8 @@
 *
 */ 
 
-#ifndef __DAE_PLATFORM_H__
-#define __DAE_PLATFORM_H__
-
-#if defined(WIN32)
-#include <dae/daeWin32Platform.h>
-#elif defined(__GCC__)
-#include <dae/daeGCCPlatform.h>
-#elif defined(__clang__)
-#include <dae/daeClangPlatform.h>
-#else
-// Use some generic settings
-#include <limits.h>
+#ifndef __DAE_CLANG_PLATFORM_H__
+#define __DAE_CLANG_PLATFORM_H__
 
 #define PLATFORM_INT8	char
 #define PLATFORM_INT16	short
@@ -30,7 +20,6 @@
 #define PLATFORM_FLOAT32 float
 #define PLATFORM_FLOAT64 double
 
-#define DLLSPEC
-#endif
+#define DLLSPEC __attribute__((visibility("default")))
 
 #endif

@@ -24,11 +24,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>9929206e82426b44c7b3a69ad46a8bb579a1f490164e7e178db583a22aa29bd2bbf2675a179509065e222a4e6963b953</string>
+              <string>e8570c78cf51e224ed8d35448bc45cbb03b64eff71e7456f8b0fe2ae8c26659784e0d2e2bf3ecd65b0fdda52daffa854</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-834/1.76.0/boost-1.76.0-darwin64-834.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-838/1.76.0/boost-1.76.0-darwin64-838.tar.xz</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -52,11 +52,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>e5e39adb84df7356388f37296d9f41bfce9115219758a06e26d7d3dc04a88eb2e83220397a9cb5a9a2a32624ad6d64d3</string>
+              <string>772d70043a19d882e7cd096ae9f75262355645a8823752b0844838819bfd46d63c033de9591660e386d431524ab88df4</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-834/1.76.0/boost-1.76.0-windows-834.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-838/1.76.0/boost-1.76.0-windows-838.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows</string>
@@ -66,11 +66,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>741f7fd97e9937250c15e7b31254c1ce5b3c01ecc3e7ef0f09c555124d634e6d926bfa5e711ecc36b021d880e2da505d</string>
+              <string>1e51bfc1914c7f082c16bcaa96af89a9add8f3179f55551800ce03418a60f8f2f20a268bd4b11ef4bfa841623d3bab18</string>
               <key>hash_algorithm</key>
               <string>sha3_384</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-834/1.76.0/boost-1.76.0-windows64-834.tar.xz</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost-838/1.76.0/boost-1.76.0-windows64-838.tar.xz</string>
             </map>
             <key>name</key>
             <string>windows64</string>

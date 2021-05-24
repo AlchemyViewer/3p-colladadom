@@ -80,14 +80,13 @@ case "$AUTOBUILD_PLATFORM" in
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            cp -a $stage/packages/lib/debug/*dll "build/$debugbuilddir/"
             "build/$debugbuilddir/domTest.exe" -all
         fi
 
         # stage the good bits
         mkdir -p "$stage"/lib/debug
 
-        debuglibname="libcollada${collada_shortver}dom${dom_shortver}-d"
+        debuglibname="libcollada${collada_shortver}dom${dom_shortver}-sd"
         cp -a build/$debugbuilddir/$debuglibname.* "$stage"/lib/debug/
 
         # Release Build
@@ -95,40 +94,69 @@ case "$AUTOBUILD_PLATFORM" in
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            cp -a $stage/packages/lib/release/*dll "build/$relbuilddir/"
             "build/$relbuilddir/domTest.exe" -all
         fi
 
         # stage the good bits
         mkdir -p "$stage"/lib/release
 
-        rellibname="libcollada${collada_shortver}dom${dom_shortver}"
+        rellibname="libcollada${collada_shortver}dom${dom_shortver}-s"
         cp -a build/$relbuilddir/$rellibname.* "$stage"/lib/release/
     ;;
 
     darwin*)
-        # Darwin build environment at Linden is also pre-polluted like Linux
-        # and that affects colladadom builds.  Here are some of the env vars
-        # to look out for:
-        #
-        # AUTOBUILD             GROUPS              LD_LIBRARY_PATH         SIGN
-        # arch                  branch              build_*                 changeset
-        # helper                here                prefix                  release
-        # repo                  root                run_tests               suffix
+        # Setup osx sdk platform
+        SDKNAME="macosx"
+        export SDKROOT=$(xcodebuild -version -sdk ${SDKNAME} Path)
+        export MACOSX_DEPLOYMENT_TARGET=10.13
 
-        opts="${TARGET_OPTS:--arch $AUTOBUILD_CONFIGURE_ARCH -std=c++11 $LL_BUILD_RELEASE}"
+        # Setup build flags
+        ARCH_FLAGS="-arch x86_64"
+        SDK_FLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET} -isysroot ${SDKROOT}"
+        DEBUG_COMMON_FLAGS="$ARCH_FLAGS $SDK_FLAGS -O0 -g -msse4.2 -fPIC -DPIC"
+        RELEASE_COMMON_FLAGS="$ARCH_FLAGS $SDK_FLAGS -O3 -g -msse4.2 -fPIC -DPIC -fstack-protector-strong"
+        DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
+        RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
+        DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"
+        RELEASE_CXXFLAGS="$RELEASE_COMMON_FLAGS -std=c++17"
+        DEBUG_CPPFLAGS="-DPIC"
+        RELEASE_CPPFLAGS="-DPIC"
+        DEBUG_LDFLAGS="$ARCH_FLAGS $SDK_FLAGS -Wl,-headerpad_max_install_names"
+        RELEASE_LDFLAGS="$ARCH_FLAGS $SDK_FLAGS -Wl,-headerpad_max_install_names"
+
+        JOBS=`sysctl -n hw.ncpu`
 
         libdir="$top/stage"
+
+        mkdir -p "$libdir"/lib/debug
+
+        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
+
+        make -j$JOBS \
+            conf=debug \
+            CFLAGS="$DEBUG_CFLAGS" \
+            CXXFLAGS="$DEBUG_CXXFLAGS" \
+            LDFLAGS="$DEBUG_LDFLAGS" \
+            arch="$AUTOBUILD_CONFIGURE_ARCH" \
+            printCommands=yes \
+            printMessages=yes
+
+        # conditionally run unit tests
+        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+            "build/mac-${collada_version}-d/domTest" -all
+        fi
+
+        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/lib/debug/
+
         mkdir -p "$libdir"/lib/release
 
         make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
 
-        # Without the -Wno-etc flag, incredible spam is produced
-        make \
+        make -j$JOBS \
             conf=release \
-            CFLAGS="$opts" \
-            CXXFLAGS="$opts -Wno-unused-local-typedef" \
-            LDFLAGS="-Wl,-headerpad_max_install_names" \
+            CFLAGS="$RELEASE_CFLAGS" \
+            CXXFLAGS="$RELEASE_CXXFLAGS" \
+            LDFLAGS="$RELEASE_LDFLAGS" \
             arch="$AUTOBUILD_CONFIGURE_ARCH" \
             printCommands=yes \
             printMessages=yes
@@ -138,34 +166,10 @@ case "$AUTOBUILD_PLATFORM" in
             "build/mac-${collada_version}/domTest" -all
         fi
 
-        # install_name_tool -id "@executable_path/../Resources/libcollada${collada_shortver}dom-d.dylib" "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.dylib"
-        # install_name_tool -id "@executable_path/../Resources/libcollada${collada_shortver}dom.dylib" "build/mac-${collada_version}/libcollada${collada_shortver}dom.dylib"
-
         cp -a "build/mac-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/release/
     ;;
 
     linux*)
-        # Linux build environment at Linden comes pre-polluted with stuff that can
-        # seriously damage 3rd-party builds.  Environmental garbage you can expect
-        # includes:
-        #
-        #    DISTCC_POTENTIAL_HOSTS     arch           root        CXXFLAGS
-        #    DISTCC_LOCATION            top            branch      CC
-        #    DISTCC_HOSTS               build_name     suffix      CXX
-        #    LSDISTCC_ARGS              repo           prefix      CFLAGS
-        #    cxx_version                AUTOBUILD      SIGN        CPPFLAGS
-        #
-        # So, clear out bits that shouldn't affect our configure-directed build
-        # but which do nonetheless.
-        #
-        # unset DISTCC_HOSTS CC CXX CFLAGS CPPFLAGS CXXFLAGS
-
-##      # Prefer gcc-4.6 if available.
-##      if [ -x /usr/bin/gcc-4.6 -a -x /usr/bin/g++-4.6 ]; then
-##          export CC=/usr/bin/gcc-4.6
-##          export CXX=/usr/bin/g++-4.6
-##      fi
-
         # Default target per --address-size
         opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE}"
         DEBUG_COMMON_FLAGS="$opts -Og -g -fPIC -DPIC"

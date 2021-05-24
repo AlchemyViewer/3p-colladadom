@@ -60,7 +60,7 @@ endif
 ifeq ($(os),linux)
 libOpts += -lboost_filesystem-mt$(debugSuffix)$(archsupport)
 else ifeq ($(os),mac)
-libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
+libOpts += -lboost_filesystem-mt$(debugSuffix)$(archsupport)
 else
 includeOpts += -Iexternal-libs/boost
 libOpts += external-libs/boost/lib/$(buildID)/libboost_system$(archsupport).a

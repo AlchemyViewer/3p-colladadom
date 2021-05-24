@@ -20,6 +20,6 @@
 #define PLATFORM_FLOAT32 float
 #define PLATFORM_FLOAT64 double
 
-#define DLLSPEC
+#define DLLSPEC __attribute__((visibility("default")))
 
 #endif

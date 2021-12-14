@@ -69,6 +69,11 @@ case "$AUTOBUILD_PLATFORM" in
                 debugbuilddir="vc14$buildarchextra-${collada_version}-d"
                 relbuilddir="vc14$buildarchextra-${collada_version}"
                 ;;
+            17*)
+                versub="vc14-${collada_version}"
+                debugbuilddir="vc14$buildarchextra-${collada_version}-d"
+                relbuilddir="vc14$buildarchextra-${collada_version}"
+                ;;
             *)
                 echo "Unknown AUTOBUILD_WIN_VSVER='$AUTOBUILD_WIN_VSVER'" 1>&2 ; exit 1
                 ;;

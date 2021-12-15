@@ -24,11 +24,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>cf370737dd5f8ee8301558efb5677c90a7d3fa681d0051606ab6dcdcb3a77b2da17ac388510388a021d3ef88bdcff826145d24a4210e2deb9620df352229934d</string>
+              <string>a8f47350ce47739be25ae54231aa34e852661043d8432ce68a44aad047f25de3638766722d6a26dda4e2297f538ae538f1aedd891dd916c30bff62d02afcdedc</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.77.0.1209/boost-1.77.0-darwin64-1209.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.78.0.1305/boost-1.78.0-darwin64-1305.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -38,11 +38,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>3d3e5aa48b5ceb55b582e16902f63e6c5c37a58c193cd6bdc3d5f6ba35d42db1f3ac44e53331ef7b704e5d15f28b3d6ec5fa93ab257e426c88c3741216b38bb9</string>
+              <string>c5003d87e8e155962796b86e196aac608738a5c38b371a35772c0929204a1e75704ed98ade8c40db89066d60b0e8c3b502a5c7be93ebcfd26c25d8c1d07ae611</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.77.1209/boost-1.77-linux64-1209.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.78.0.1305/boost-1.78.0-linux64-1305.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -52,18 +52,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>e410f7c9110ac48012fbd62fbb75e4ab8f2872b7cd632a9c5818606a9abe5d5776b36386db3f7e8f3063b4d7faacae19c2bd3083944b56a4d5c9a1a42cea41dd</string>
+              <string>513014d4d811f118f0c0043175ca069961154cc9e760d1d523156f6277013e70d75e3b3643586e830e20d94847b24c11a455d859bd549ff9668e089f389c6c00</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.77.0.1209/boost-1.77.0-windows64-1209.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.78.0.1305/boost-1.78.0-windows64-1305.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>1.77</string>
+        <string>1.78.0</string>
       </map>
       <key>libxml2</key>
       <map>
@@ -86,11 +86,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>a5ef38c7018223a0211a711aed95b7c39de9e7d5fca409bf233dcf59308ae5ecc64ebd8b42e43207600a2af587de546db7f0e9a703e2d5250e4587d6cd4ec74f</string>
+              <string>b686413ab5259e7a5489bc6120fa6484c31545f9f707f0aad538972e119e0b56f71b662b649696366c649584909c795aa0d45024990e75dd0dcf67bd699c973c</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1204/libxml2-2.9.12-darwin64-1204.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1293/libxml2-2.9.12-darwin64-1293.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -100,11 +100,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>337e8efc5591a539612b83acac30588772bb9fe59be961c3149a78df25925e6eb532bcf44d1a63c0f92f1263ccde08a8c76c2484a70b6831f9d0baae0b0d024e</string>
+              <string>94330f69896d7d0b892946a96156574d974a47188134116f1fa8c3b004bf92f558e7871b4c629f73e5c4bfcbe7fe88856ce1057ca88a7392dbb6e5ef899fa538</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1204/libxml2-2.9.12-linux64-1204.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1293/libxml2-2.9.12-linux64-1293.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -114,11 +114,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>21d4f45580cfde1738f433eccbaca1097b731dde586a9b42e724b25d8ccf77ff4c15efe7acb7dcf651703be4d47054d0e0149ea20f85048f9e2f1e79b5742a10</string>
+              <string>91a732f77af55b0c1a2afd974f75c679cfabba8e4a221e879458e3b8be429c687fb1218df65d0130dc5a653d5b3cf3f34389cd4fb1adbd313606e86d13e43f2b</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1204/libxml2-2.9.12-windows64-1204.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.9.12.1293/libxml2-2.9.12-windows64-1293.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
@@ -148,11 +148,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>408f839a33adb693ae96cb708bf3aba5bc192f3cb39b5cd576259801d6062ce845a8a3146a09b469a3b3d357f6e552208886dd2a8fe402fa2fe9a315bb4e791d</string>
+              <string>aaeeed051cba6b38f7e078b42c3d08b3690177fcf97ec94596c5b5447f091f9157e6647613eab8796edf560abcde20b4d59ce15604f669f9b981e0eaf52f67ff</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.3.1205/minizip_ng-3.0.3-darwin64-1205.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.4.1290/minizip_ng-3.0.4-darwin64-1290.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -162,11 +162,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>9230894b3df71ef8fdae2a040b95eebc114e121cde62c94b52b30dd765a47500c820027777659714933c68750dd5a19f419f4feab7636b1dbe585aeb07b69352</string>
+              <string>365aa27ca55dbcd42bbecc4ecd761b8112db74259a328ed6a76bf1242fbcad37d30ade612499f79af2e8da5ef6eb253542baeaf44a9ae42f18c5fe37fbbb3d8a</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.3.1205/minizip_ng-3.0.3-linux64-1205.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.4.1290/minizip_ng-3.0.4-linux64-1290.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -176,18 +176,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>12999cdc53bcdc75892eac992aab254f32387ce69a160b80e41cf6a0029e740622c64f2489571d91a97e9eefa3866ca90db0c647b4e04951ee51ebbeb2d7e9b7</string>
+              <string>0b5e86e871506a51609630df0913b9ead9d6325a355ef9c07786300f6acdb407c0915bbd1b7393007ddbdedc18076dccafbf076859c4a3860c2b9cc4a72cf963</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.3.1205/minizip_ng-3.0.3-windows64-1205.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/3.0.4.1290/minizip_ng-3.0.4-windows64-1290.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>3.0.3</string>
+        <string>3.0.4</string>
       </map>
       <key>uriparser</key>
       <map>
@@ -210,11 +210,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>b560a84bd13cc8070fe85801b9630d7855709230470f5bd60c4bcf6bccbaf5f68032e78c85cc53e2bd50d19ef5234192c2a717762528e75042dfd230d5979407</string>
+              <string>e64c79e4fe79bffe2c6cb73d89a5a46fd8815ce45a77369b00a25a3ada3de5172dc2e9a670520015e5fae370da122aefcb9639cd4d17626980aa89490f8b2f79</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1194/uriparser-0.9.5-darwin64-1194.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1294/uriparser-0.9.5-darwin64-1294.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -224,11 +224,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>9905c963704c1c05d7f7a5be90cc4e39973cab20ddfcff98b1d0292581a882660a75d390868f52dd3f498d56b832e55cb6724161122e18e83afe90a392a55690</string>
+              <string>eee4d4ef0f8fa278969a13dfed1714808a1b32bd46b1ca4dc89ec7421ce4b0700eb988c747e223f6316113abb17c9a77cff44b94cf94ea9c0fd841a5f0755719</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1194/uriparser-0.9.5-linux64-1194.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1294/uriparser-0.9.5-linux64-1294.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -238,11 +238,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>1f23cb884115c2bec54f9514d97fc10228ad2e640525a401f376a9d4e3cc72be6b776440ad85045c28a4b6ca17a70a4ff769dedeae473871c2106b4d784b0e9d</string>
+              <string>60ae9de24caba89ed3bc61cac8ab87882d27fa1442824351ef896b758a1c23b9d07eb05d407bb0a7889211b8c7c5e768e5e0dd70c0b699048f5e323c1fb021cb</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1194/uriparser-0.9.5-windows64-1194.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.5.1294/uriparser-0.9.5-windows64-1294.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
@@ -272,11 +272,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>307c7629331f0cbda1a9fc122ef37dde0f373451be997ac69dd2d58e580ee3e9bcd6ed8db61f4cd3856d1e29b61c92f44d97613644d1e2074c0ba91cfefb6921</string>
+              <string>090435a0951c0548f4cac4d932ba802b1222cb97a0e08cac1e2cf399f638beb0d53ffc86d9d8074d25c130a2e390be271d84371da0ed70c1d52e71b42b36f853</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1196/zlib_ng-2.0.5-darwin64-1196.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1289/zlib_ng-2.0.5-darwin64-1289.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -286,11 +286,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>289119ac12bc82c045915ac14beca1f48f0a0cdec46c74b42f67cda3a136cb7024d41d2d5e3615d7ffe904a396393feefb6ffd449a74ae5d1a12d9814e6c7834</string>
+              <string>88685a966a85f92abbc26971728f0eb40de42cfc62325aa881a28cdd832c12b9ac4256fb40d26a50b8184886a80bd3af75cb5156f6fac06940d8d523559d3d4b</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1196/zlib_ng-2.0.5-linux64-1196.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1289/zlib_ng-2.0.5-linux64-1289.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -300,11 +300,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>e65b7ab76a7b8f17165e6c9d28d7bc1bbe8b5671a4b8cd7c642a000185ef3b1df6d9842dc877bbcbaaddbbdc677e740ce790878dd92b624f479b0be46611e86e</string>
+              <string>43383261ca4a2c296a5d955c424ae6056339efac6681798da0cdbbd39d3275e8783b120c3a7dddbddb39281fa5ba9626ca20a9aed8e3caeaa7283659cdf4b41d</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1196/zlib_ng-2.0.5-windows64-1196.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/148/packages/generic/zlib-ng/2.0.5.1289/zlib_ng-2.0.5-windows64-1289.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>

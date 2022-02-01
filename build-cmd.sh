@@ -113,36 +113,45 @@ case "$AUTOBUILD_PLATFORM" in
         # Setup osx sdk platform
         SDKNAME="macosx"
         export SDKROOT=$(xcodebuild -version -sdk ${SDKNAME} Path)
-        export MACOSX_DEPLOYMENT_TARGET=10.15
+
+        # Deploy Targets
+        X86_DEPLOY=10.15
+        ARM64_DEPLOY=11.0
 
         # Setup build flags
-        ARCH_FLAGS="-arch x86_64"
-        SDK_FLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET} -isysroot ${SDKROOT}"
-        DEBUG_COMMON_FLAGS="$ARCH_FLAGS $SDK_FLAGS -O0 -g -msse4.2 -fPIC -DPIC"
-        RELEASE_COMMON_FLAGS="$ARCH_FLAGS $SDK_FLAGS -O3 -g -msse4.2 -fPIC -DPIC -fstack-protector-strong"
+        ARCH_FLAGS_X86="-arch x86_64 -mmacosx-version-min=${X86_DEPLOY} -isysroot ${SDKROOT} -msse4.2"
+        ARCH_FLAGS_ARM64="-arch arm64 -mmacosx-version-min=${ARM64_DEPLOY} -isysroot ${SDKROOT}"
+        DEBUG_COMMON_FLAGS="-O0 -g -fPIC -DPIC"
+        RELEASE_COMMON_FLAGS="-O3 -g -fPIC -DPIC -fstack-protector-strong"
         DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
         RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
         DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"
         RELEASE_CXXFLAGS="$RELEASE_COMMON_FLAGS -std=c++17"
         DEBUG_CPPFLAGS="-DPIC"
         RELEASE_CPPFLAGS="-DPIC"
-        DEBUG_LDFLAGS="$ARCH_FLAGS $SDK_FLAGS -Wl,-headerpad_max_install_names"
-        RELEASE_LDFLAGS="$ARCH_FLAGS $SDK_FLAGS -Wl,-headerpad_max_install_names"
+        DEBUG_LDFLAGS="-Wl,-headerpad_max_install_names"
+        RELEASE_LDFLAGS="-Wl,-headerpad_max_install_names"
 
-        JOBS=`sysctl -n hw.ncpu`
+        # x86 Deploy Target
+        export MACOSX_DEPLOYMENT_TARGET=${X86_DEPLOY}
 
         libdir="$top/stage"
 
         mkdir -p "$libdir"/lib/debug
+        mkdir -p "$libdir"/lib/release
+        mkdir -p "$libdir"/debug_x86
+        mkdir -p "$libdir"/debug_arm64
+        mkdir -p "$libdir"/release_x86
+        mkdir -p "$libdir"/release_arm64
 
-        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
+        make clean arch="x86_64" # Hide 'arch' env var
 
-        make -j$JOBS \
+        make -j$AUTOBUILD_CPU_COUNT \
             conf=debug \
-            CFLAGS="$DEBUG_CFLAGS" \
-            CXXFLAGS="$DEBUG_CXXFLAGS" \
-            LDFLAGS="$DEBUG_LDFLAGS" \
-            arch="$AUTOBUILD_CONFIGURE_ARCH" \
+            CFLAGS="$ARCH_FLAGS_X86 $DEBUG_CFLAGS" \
+            CXXFLAGS="$ARCH_FLAGS_X86 $DEBUG_CXXFLAGS" \
+            LDFLAGS="$ARCH_FLAGS_X86 $DEBUG_LDFLAGS" \
+            arch="x86_64" \
             printCommands=yes \
             printMessages=yes
 
@@ -151,18 +160,16 @@ case "$AUTOBUILD_PLATFORM" in
             "build/mac-${collada_version}-d/domTest" -all
         fi
 
-        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/lib/debug/
+        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/debug_x86/
 
-        mkdir -p "$libdir"/lib/release
+        make clean arch="x86_64" # Hide 'arch' env var
 
-        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
-
-        make -j$JOBS \
+        make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
-            CFLAGS="$RELEASE_CFLAGS" \
-            CXXFLAGS="$RELEASE_CXXFLAGS" \
-            LDFLAGS="$RELEASE_LDFLAGS" \
-            arch="$AUTOBUILD_CONFIGURE_ARCH" \
+            CFLAGS="$ARCH_FLAGS_X86 $RELEASE_CFLAGS" \
+            CXXFLAGS="$ARCH_FLAGS_X86 $RELEASE_CXXFLAGS" \
+            LDFLAGS="$ARCH_FLAGS_X86 $RELEASE_LDFLAGS" \
+            arch="x86_64" \
             printCommands=yes \
             printMessages=yes
 
@@ -171,7 +178,52 @@ case "$AUTOBUILD_PLATFORM" in
             "build/mac-${collada_version}/domTest" -all
         fi
 
-        cp -a "build/mac-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/release/
+        cp -a "build/mac-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/release_x86/
+
+        make clean arch="x86_64" # Hide 'arch' env var
+
+        # ARM64 Deploy Target
+        export MACOSX_DEPLOYMENT_TARGET=${ARM64_DEPLOY}
+
+        make -j$AUTOBUILD_CPU_COUNT \
+            conf=debug \
+            CFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_CFLAGS" \
+            CXXFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_CXXFLAGS" \
+            LDFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_LDFLAGS" \
+            arch="arm64" \
+            printCommands=yes \
+            printMessages=yes
+
+        # conditionally run unit tests
+        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+            "build/mac-${collada_version}-d/domTest" -all
+        fi
+
+        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/debug_arm64/
+
+        make clean arch="arm64" # Hide 'arch' env var
+
+        make -j$AUTOBUILD_CPU_COUNT \
+            conf=release \
+            CFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_CFLAGS" \
+            CXXFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_CXXFLAGS" \
+            LDFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_LDFLAGS" \
+            arch="arm64" \
+            printCommands=yes \
+            printMessages=yes
+
+        # conditionally run unit tests
+        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+            "build/mac-${collada_version}/domTest" -all
+        fi
+
+        cp -a "build/mac-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/release_arm64/
+
+        make clean arch="arm64" # Hide 'arch' env var
+
+        # create fat libraries
+        lipo -create ${stage}/debug_x86/libcollada${collada_shortver}dom-d.a ${stage}/debug_arm64/libcollada${collada_shortver}dom-d.a -output ${stage}/lib/debug/libcollada${collada_shortver}dom-d.a
+        lipo -create ${stage}/release_x86/libcollada${collada_shortver}dom.a ${stage}/release_arm64/libcollada${collada_shortver}dom.a -output ${stage}/lib/release/libcollada${collada_shortver}dom.a
     ;;
 
     linux*)
@@ -186,8 +238,6 @@ case "$AUTOBUILD_PLATFORM" in
         DEBUG_CPPFLAGS="-DPIC"
         RELEASE_CPPFLAGS="-DPIC -D_FORTIFY_SOURCE=2"
         
-        JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
-
         # Handle any deliberate platform targeting
         if [ -z "${TARGET_CPPFLAGS:-}" ]; then
             # Remove sysroot contamination from build environment
@@ -203,7 +253,7 @@ case "$AUTOBUILD_PLATFORM" in
 
         make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
 
-        make -j$JOBS \
+        make -j$AUTOBUILD_CPU_COUNT \
             conf=debug \
             LDFLAGS="$opts" \
             CFLAGS="$DEBUG_CFLAGS" \
@@ -221,7 +271,7 @@ case "$AUTOBUILD_PLATFORM" in
 
         make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
 
-        make -j$JOBS \
+        make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
             LDFLAGS="$opts" \
             CFLAGS="$RELEASE_CFLAGS" \

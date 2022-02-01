@@ -27,6 +27,8 @@ archsupport :=
 endif
 
 ifeq ($(os),mac)
+# Override for universal libs
+archsupport :=
 # Add the -arch flags to specify what architectures we're building for.
 ccFlags += $(addprefix -arch ,$(archs))
 endif

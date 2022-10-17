@@ -58,7 +58,7 @@ case "$AUTOBUILD_PLATFORM" in
         else
             buildarchextra="-x64"
         fi
-        case "$AUTOBUILD_WIN_VSVER" in
+        case "$AUTOBUILD_VSVER" in
             "120")
                 versub="vc12-${collada_version}"
                 debugbuilddir="vc12$buildarchextra-${collada_version}-d"
@@ -75,13 +75,13 @@ case "$AUTOBUILD_PLATFORM" in
                 relbuilddir="vc14$buildarchextra-${collada_version}"
                 ;;
             *)
-                echo "Unknown AUTOBUILD_WIN_VSVER='$AUTOBUILD_WIN_VSVER'" 1>&2 ; exit 1
+                echo "Unknown AUTOBUILD_VSVER='$AUTOBUILD_VSVER'" 1>&2 ; exit 1
                 ;;
         esac
         projdir="projects/$versub"
 
         # Debug Build
-        build_sln "$projdir/dom.sln" "Debug" "$AUTOBUILD_WIN_VSPLATFORM"
+        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM"
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
@@ -95,7 +95,7 @@ case "$AUTOBUILD_PLATFORM" in
         cp -a build/$debugbuilddir/$debuglibname.* "$stage"/lib/debug/
 
         # Release Build
-        build_sln "$projdir/dom.sln" "Release" "$AUTOBUILD_WIN_VSPLATFORM"
+        build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM"
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then

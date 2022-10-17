@@ -86,11 +86,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>712c0d4f539a42000f66e6f8570e0098582d19e78e32275462ca55a43bff363f09f6657b144178f74eeeade92caebca17e88a317f747f6823a36f62b05ba7f6d</string>
+              <string>23de0086a8c566a59bf2b2916233c8b6c6b3d00f558eb7832f977a43eac8be4203fa626e2730434523589068966f68600787f32d93ad145df4003a7876bebf25</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1595/libxml2-2.10.3-darwin64-1595.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1610/libxml2-2.10.3-darwin64-1610.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -100,11 +100,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>016e676e93227547b164386201b51310c5847890be2afc0e5830d65b2cb429e59c6492a460193f6e2ab09bec881ab94350e50e7f4dab45489366c53b06f1e994</string>
+              <string>e6283b04d6944d56eaa02e32e73830288b70b683594581570706031745bc7475307916f542a6d5738251f65f4416d9e6fba81c2be8a07391f9e8b8691c496e07</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1595/libxml2-2.10.3-linux64-1595.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1610/libxml2-2.10.3-linux64-1610.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -114,11 +114,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>4661afc9ff2a182f90ed59392b6ff846f60a5c947d6190799250f2ecd1199ba4c920868a67aab88a3c88157be3fa741ea396820480ff4f6c14a23e330219c01b</string>
+              <string>1159b2358aae580ee130b86c60bfc10daf13836a10b0e04d09becf8d9de2b04907e03075bd4be662cd0b27fa053eaffb3b6ab774ccc0901fba6fb30bc2e03964</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1595/libxml2-2.10.3-windows64-1595.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.10.3.1610/libxml2-2.10.3-windows64-1610.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>

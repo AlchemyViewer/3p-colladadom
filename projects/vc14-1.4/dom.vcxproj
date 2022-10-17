@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2_a.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-gd-x32.lib;libboost_system-mt-gd-x32.lib;libminizip.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-gd-x32.lib;libboost_system-mt-gd-x32.lib;libminizip.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
@@ -142,7 +142,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2_a.lib;wsock32.lib;uriparser.lib;libminizip.lib;libboost_filesystem-mt-gd-x64.lib;libboost_system-mt-gd-x64.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2.lib;wsock32.lib;uriparser.lib;libminizip.lib;libboost_filesystem-mt-gd-x64.lib;libboost_system-mt-gd-x64.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
@@ -175,7 +175,7 @@
       <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2_a.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-x32.lib;libboost_system-mt-x32.lib;libminizip.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-x32.lib;libboost_system-mt-x32.lib;libminizip.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
@@ -209,7 +209,7 @@
       <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2_a.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-x64.lib;libboost_system-mt-x64.lib;libminizip.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2.lib;wsock32.lib;uriparser.lib;libboost_filesystem-mt-x64.lib;libboost_system-mt-x64.lib;libminizip.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>

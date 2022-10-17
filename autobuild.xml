@@ -38,11 +38,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>34965aa97045460cda10a949404fa93f7b7bac7f1b526400609058d8b4f19be6aba790c7c5458334aa296569036fb8734020a0ab3f7cc13635bea17df662be78</string>
+              <string>fd666be19a92a5ffa78d3eec18b31b6463bc6e2f156758f86215c2334d924e9273f22e9cf02fd1328edb256952b5db30b83448f370ffa7e7751754201c93fc8a</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.79.0.1496/boost-1.79.0-linux64-1496.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.80.0.1583/boost-1.80.0-linux64-1583.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>

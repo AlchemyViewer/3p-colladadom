@@ -28,11 +28,11 @@ public:
 	/**
 	 * Constructor
 	 */
-	DLLSPEC daeArray();
+	daeArray();
 	/**
 	 * Destructor
 	 */
-	virtual DLLSPEC ~daeArray();
+	virtual ~daeArray();
 	/**
 	 * Clears the contents of the array. Do not use this function if the array contains @c daeSmartRef objects and the
 	 * @c dom* class the array belongs to has a @c _contents member.
@@ -42,12 +42,12 @@ public:
 	 * objects will not be removed from @c _contents, which can cause problems when you
 	 * save the data.  We recommended that @c clear() not be used on arrays that are part of a @c dom* object.
 	 */
-	virtual DLLSPEC void clear() = 0;
+	virtual void clear() = 0;
 	/**
 	 * Sets the size of an element in the array. This clears and reinitializes the array.
 	 * @param elementSize Size of an element in the array.
 	 */
-	DLLSPEC void setElementSize(size_t elementSize);
+	void setElementSize(size_t elementSize);
 	/**
 	 * Gets the size of an element in this array.
 	 * @return Returns the size of an element in this array.

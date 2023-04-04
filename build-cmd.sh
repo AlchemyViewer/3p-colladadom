@@ -121,8 +121,8 @@ case "$AUTOBUILD_PLATFORM" in
         # Setup build flags
         ARCH_FLAGS_X86="-arch x86_64 -mmacosx-version-min=${X86_DEPLOY} -isysroot ${SDKROOT} -msse4.2"
         ARCH_FLAGS_ARM64="-arch arm64 -mmacosx-version-min=${ARM64_DEPLOY} -isysroot ${SDKROOT}"
-        DEBUG_COMMON_FLAGS="-O0 -g -fPIC -DPIC -fvisibility=hidden"
-        RELEASE_COMMON_FLAGS="-O3 -g -fPIC -DPIC -fstack-protector-strong -fvisibility=hidden"
+        DEBUG_COMMON_FLAGS="-O0 -g -fPIC -DPIC"
+        RELEASE_COMMON_FLAGS="-O3 -g -fPIC -DPIC -fstack-protector-strong"
         DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
         RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
         DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"

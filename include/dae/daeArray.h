@@ -16,7 +16,7 @@ class daeAtomicType;
 /**
  * COLLADA C++ class that implements storage for resizable array containers.
  */
-class daeArray
+class DLLSPEC daeArray
 {
 protected:
 	size_t         _count;

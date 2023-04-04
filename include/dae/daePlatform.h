@@ -11,10 +11,10 @@
 
 #if defined(WIN32)
 #include <dae/daeWin32Platform.h>
-#elif defined(__GCC__)
-#include <dae/daeGCCPlatform.h>
 #elif defined(__clang__)
 #include <dae/daeClangPlatform.h>
+#elif defined(__GCC__)
+#include <dae/daeGCCPlatform.h>
 #else
 // Use some generic settings
 #include <limits.h>

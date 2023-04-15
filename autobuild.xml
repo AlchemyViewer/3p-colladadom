@@ -24,11 +24,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>c15f791afd488eb084ce22f998ad05dbb60348e9919a955141d87f587f8f858b3e04b776db6980aae15eae7cc77279b5827d69c71c11591f14b088ddf152d719</string>
+              <string>9d29d5ff83186d0af27624e1bf7a388ae68ab33bc72a23cc6fe994bde0a51671526c4f8ff519906b3554b07e6613228eb148b7a4d537339e0b4fe45d50dd7db7</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.81.0.1954/boost-1.81.0-darwin64-1954.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.82.0.1982/boost-1.82.0-darwin64-1982.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -38,11 +38,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>9977b98ae65952d1a081be27ecf40b5e240890f7b3731a4a4ce1c648846c5bbd5fcba91eed766dd65fe1bacf3fad6c7ecdc082c7b8ceb5e2684999db24ceae03</string>
+              <string>4e6b16772137b7101cc510ad3dfd47151d908a0620589e13d7e96f74d3f32ada9bc5eb0ea87d0a43135a95f29c443fedf2bb7f24cada27c297598d55832f8898</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.81.0.1954/boost-1.81.0-linux64-1954.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.82.0.1982/boost-1.82.0-linux64-1982.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -52,18 +52,18 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>e026eb7856906de9a87a815a2d368811053ad3fee5a09fa886a6cb1323c65fd6d295f1d595b8df0d6e640ad9ebce041f53ee24fbc011523ef49a27b4b9151159</string>
+              <string>bc3fb117017ff3f8ca51c4dac2cb9e37d2f2d0020515c40901d96c09eee75198e741471848f01463c23be0350dc5f554140f8c885fb3541c3050085e9b884945</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.81.0.1954/boost-1.81.0-windows64-1954.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.82.0.1982/boost-1.82.0-windows64-1982.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
           </map>
         </map>
         <key>version</key>
-        <string>1.81.0</string>
+        <string>1.82.0</string>
       </map>
       <key>libxml2</key>
       <map>

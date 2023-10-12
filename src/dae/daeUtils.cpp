@@ -18,7 +18,7 @@
 #endif
 
 #ifndef NO_BOOST
-#include <boost/filesystem/convenience.hpp>       // THIS WAS NOT COMMENTED.
+#include <boost/filesystem.hpp> // THIS WAS NOT COMMENTED.
 #endif
 
 #include <cstdio> // for tmpnam
@@ -121,6 +121,9 @@ list<string> cdom::makeStringList(const char* s, ...) {
 #endif
 
 string cdom::getCurrentDir() {
+#ifndef NO_BOOST
+	return boost::filesystem::current_path().string();
+#else
 #ifdef __CELLOS_LV2__
 	// The PS3 has no getcwd call.
 	// !!!steveT Should we return app_home instead?
@@ -133,6 +136,7 @@ string cdom::getCurrentDir() {
 	getcwd(buffer, 1024);
 #endif
 	return buffer;
+#endif
 #endif
 }
 
@@ -151,7 +155,10 @@ char cdom::getFileSeparator() {
     return '/';
 }
 #ifndef NO_BOOST
-const string& cdom::getSystemTmpDir() {
+string cdom::getSystemTmpDir() {
+#ifndef NO_BOOST
+	return boost::filesystem::temp_directory_path().string();
+#else
 #ifdef WIN32
     static string tmpDir = string(getenv("TMP")) + getFileSeparator();
 #elif defined(__linux__) || defined(__linux)
@@ -164,9 +171,14 @@ static string tmpDir = string(getenv("TMPDIR"));
 #error tmp dir for your system unknown
 #endif
     return tmpDir;
+#endif
 }
 
 string cdom::getRandomFileName() {
+#ifndef NO_BOOST
+	return boost::filesystem::unique_path().string();
+#else
+
     std::string randomSegment;
     // have to createa a buffer in order to make it multi-thread safe
     std::string tmpbuffer; tmpbuffer.resize(L_tmpnam*2+1);
@@ -183,6 +195,7 @@ string cdom::getRandomFileName() {
 #error  usage of tmpnam() for your system unknown
 #endif
     return randomSegment;
+#endif
 }
 
 const string& cdom::getSafeTmpDir() {

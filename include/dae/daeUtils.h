@@ -99,7 +99,7 @@ namespace cdom {
 #ifndef NO_BOOST
     // Returns system wide temporary directory.
     // Reads environment variable TMP.
-    DLLSPEC const std::string& getSystemTmpDir();
+    DLLSPEC std::string getSystemTmpDir();
 
     // Returns a filename obtained via tmpnam().
     // On systems where tmpnam()'s result is preceded

@@ -14,6 +14,9 @@
 #include <dae/daeErrorHandler.h>
 #include <dae/daeUtils.h>
 
+#include <boost/regex.hpp>
+
+#if 0
 #include <uriparser/Uri.h>
 std::string fromRange(const UriTextRangeA & rng)
 {
@@ -30,6 +33,7 @@ std::string fromList(UriPathSegmentA * xs, const std::string & delim)
         }
     return accum;
 }
+#endif
 
 using namespace std;
 using namespace cdom;
@@ -141,9 +145,9 @@ daeString daeURI::getOriginalURI() const {
 
 namespace {
 	void parsePath(const string& path,
-	               /* out */ string& dir,
-	               /* out */ string& baseName,
-	               /* out */ string& extension) {
+		/* out */ string& dir,
+		/* out */ string& baseName,
+		/* out */ string& extension) {
 		// !!!steveT Currently, if we have a file name that begins with a '.', as in
 		// ".emacs", that will be treated as having no base name with an extension
 		// of ".emacs". We might want to change this behavior, so that the base name
@@ -151,23 +155,50 @@ namespace {
 		// in line with what path parsers in other libraries/languages do, and it
 		// more accurately reflects the intended structure of the file name.
 
-        // The following implementation cannot handle paths like this:
-        // /tmp/se.3/file
-        //static pcrecpp::RE re("(.*/)?([^.]*)?(\\..*)?");
+		// The following implementation cannot handle paths like this:
+		// /tmp/se.3/file
+		//static pcrecpp::RE re("(.*/)?([^.]*)?(\\..*)?");
 		//dir = baseName = extension = "";
 		//re.FullMatch(path, &dir, &baseName, &extension);
 
-    if ( path.size() <= 1) {
-        dir = path;
-        baseName = "";
-    } else {
-        dir= path.substr(0, path.rfind('/')+1);
-        baseName = path.substr(path.rfind('/')+1);
-    }
-    if ( baseName.rfind('.') != std::string::npos ) {
-       extension = baseName.substr(baseName.find('.'));
-       baseName = baseName.substr(0, baseName.find('.'));
-    }
+#if 0
+		static pcrecpp::RE findDir("(.*/)?(.*)?");
+		static pcrecpp::RE findExt("([^.]*)?(\\..*)?");
+		string tmpFile;
+		dir = baseName = extension = tmpFile = "";
+		findDir.PartialMatch(path, &dir, &tmpFile);
+		findExt.PartialMatch(tmpFile, &baseName, &extension);
+#elif 0
+		if (path.size() <= 1) {
+			dir = path;
+			baseName = "";
+		}
+		else {
+			dir = path.substr(0, path.rfind('/') + 1);
+			baseName = path.substr(path.rfind('/') + 1);
+		}
+		if (baseName.rfind('.') != std::string::npos) {
+			extension = baseName.substr(baseName.find('.'));
+			baseName = baseName.substr(0, baseName.find('.'));
+		}
+#else
+		static boost::regex findDir("(.*/)?(.*)?", boost::regex::perl | boost::regex::icase);
+		static boost::regex findExt("([^.]*)?(\\..*)?", boost::regex::perl | boost::regex::icase);
+		boost::smatch matches;
+		string tmpFile;
+		dir = tmpFile = baseName = extension = "";
+		if (boost::regex_search(path, matches, findDir))
+		{
+			dir.assign(matches[1].first, matches[1].second);
+			tmpFile.assign(matches[2].first, matches[2].second);
+		}
+
+		if (boost::regex_search(tmpFile, matches, findExt))
+		{
+			baseName.assign(matches[1].first, matches[1].second);
+			extension.assign(matches[2].first, matches[2].second);
+		}
+#endif
 	}
 }
 
@@ -724,6 +755,14 @@ bool cdom::parseUriRef(const string& uriRef,
                        string& path,
                        string& query,
                        string& fragment) {
+#if 0
+	// This regular expression for parsing URI references comes from the URI spec:
+//   http://tools.ietf.org/html/rfc3986#appendix-B
+	static pcrecpp::RE re("^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?");
+	string s1, s3, s6, s8;
+	if (re.FullMatch(uriRef, &s1, &scheme, &s3, &authority, &path, &s6, &query, &s8, &fragment))
+		return true;
+#elif 0
     UriUriA uri;
     if (uriParseSingleUriA(&uri, uriRef.c_str(), NULL) == 0 ) {
         scheme = fromRange(uri.scheme);
@@ -736,7 +775,21 @@ bool cdom::parseUriRef(const string& uriRef,
         uriFreeUriMembersA(&uri);
         return true;
     }
-
+#else
+	// This regular expression for parsing URI references comes from the URI spec:
+	//   http://tools.ietf.org/html/rfc3986#appendix-B
+	static boost::regex re("^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\\?([^#]*))?(#(.*))?", boost::regex::perl | boost::regex::icase);
+	boost::smatch matches;
+	if (boost::regex_match(uriRef, matches, re))
+	{
+		scheme.assign(matches[2].first, matches[2].second);
+		authority.assign(matches[4].first, matches[4].second);
+		path.assign(matches[5].first, matches[5].second);
+		query.assign(matches[7].first, matches[7].second);
+		fragment.assign(matches[9].first, matches[9].second);
+		return true;
+	}
+#endif
 	return false;
 }
 

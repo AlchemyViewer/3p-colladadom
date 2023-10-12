@@ -193,68 +193,6 @@
         <key>description</key>
         <string>Fork of the popular zip manipulation library found in the zlib distribution.</string>
       </map>
-      <key>uriparser</key>
-      <map>
-        <key>platforms</key>
-        <map>
-          <key>darwin64</key>
-          <map>
-            <key>archive</key>
-            <map>
-              <key>hash</key>
-              <string>6636310cac61ae2e7351918ac8cfebbe5f484b1c8208a0bece5a75635e9aefd51bdcd64803ea2e58406bf55c54bb808f3af515889c0924cc71c2f25770ebe160</string>
-              <key>hash_algorithm</key>
-              <string>blake2b</string>
-              <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.7.2131/uriparser-0.9.7-darwin64-2131.tar.zst</string>
-            </map>
-            <key>name</key>
-            <string>darwin64</string>
-          </map>
-          <key>linux64</key>
-          <map>
-            <key>archive</key>
-            <map>
-              <key>hash</key>
-              <string>66fa5b8e563e2253d8aa92cf87792eab48f97c55197c38033851392f2ded757ecc9fb0413ebbe36e406ecbb7c67985df8ebd44f6afb3e432b8c632778cf7364a</string>
-              <key>hash_algorithm</key>
-              <string>blake2b</string>
-              <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.7.2131/uriparser-0.9.7-linux64-2131.tar.zst</string>
-            </map>
-            <key>name</key>
-            <string>linux64</string>
-          </map>
-          <key>windows64</key>
-          <map>
-            <key>archive</key>
-            <map>
-              <key>hash</key>
-              <string>0d13242a505c52816cbed011dbedddf62162ea6c214d17fc92a240691e0b8d2324b4069ca0904bbd45dea204fe119d9ae56f989e25480ba985da3b8152bd5954</string>
-              <key>hash_algorithm</key>
-              <string>blake2b</string>
-              <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/96/packages/generic/uriparser/0.9.7.2131/uriparser-0.9.7-windows64-2131.tar.zst</string>
-            </map>
-            <key>name</key>
-            <string>windows64</string>
-          </map>
-        </map>
-        <key>license</key>
-        <string>New BSD license</string>
-        <key>license_file</key>
-        <string>LICENSES/uriparser.txt</string>
-        <key>copyright</key>
-        <string>Copyright (C) 2007, Weijia Song &lt;songweijia@gmail.com&gt;, Sebastian Pipping &lt;webmaster@hartwork.org&gt;</string>
-        <key>version</key>
-        <string>0.9.7</string>
-        <key>name</key>
-        <string>uriparser</string>
-        <key>canonical_repo</key>
-        <string>https://git.alchemyviewer.org/alchemy/thirdparty/3p-uriparser</string>
-        <key>description</key>
-        <string>uriparser is a strictly RFC 3986 compliant URI parsing and handling library written in C. uriparser is cross-platform, fast, supports Unicode and is licensed under the New BSD license.</string>
-      </map>
       <key>zlib-ng</key>
       <map>
         <key>platforms</key>

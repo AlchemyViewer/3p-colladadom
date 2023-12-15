@@ -81,7 +81,7 @@ case "$AUTOBUILD_PLATFORM" in
         projdir="projects/$versub"
 
         # Debug Build
-        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM"
+        msbuild.exe "$(cygpath -w "$projdir/dom.sln")"  -p:Configuration="Debug" -p:Platform="$AUTOBUILD_WIN_VSPLATFORM" 
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
@@ -95,7 +95,7 @@ case "$AUTOBUILD_PLATFORM" in
         cp -a build/$debugbuilddir/$debuglibname.* "$stage"/lib/debug/
 
         # Release Build
-        build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM"
+        msbuild.exe "$(cygpath -w "$projdir/dom.sln")"  -p:Configuration="Release" -p:Platform="$AUTOBUILD_WIN_VSPLATFORM" 
 
         # conditionally run unit tests
         if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then

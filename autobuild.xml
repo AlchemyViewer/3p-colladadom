@@ -140,11 +140,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>e7da11d2e3bda510944f6c984a2573c9399606e9e4cf557c215788a2599f239c05090608d98049042ef1e234717f4a8779b06bec4738279c4945942c707669b8</string>
+              <string>50cd93e4fa66d9b6952c7028e5bdc57137ac641ade352fe33ca93e5817aa95e989071da652f0b4b62fd8eecd7b6b5dfc2f211c50f33265b6ca6e29a5d7308adc</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.1.2130/minizip_ng-4.0.1-darwin64-2130.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.4.2352/minizip_ng-4.0.4-darwin64-2352.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -154,11 +154,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>3c5ed9c7526d7183340f86b415e5c33372d2f1e62b2fedb28cc856d4109cbe019e5a43ea753948ca99067a775c89cd75ac3868a4f71018c3a6736a7f78914bc4</string>
+              <string>94efcf4e45fb4c43662c362242642912e7936effc5dad490857ebd8f4f7db2f2ef562b54b8852f408d9bc32bde20064e0cacf730f9b67b028bcfa6b7f5d5b953</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.1.2130/minizip_ng-4.0.1-linux64-2130.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.4.2352/minizip_ng-4.0.4-linux64-2352.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -168,11 +168,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>181892da6e358f3bd047c52c91da00440ddc6ae486640be60e904ff296092b1685292e6db8d4b46d5cb935069f4b1b5a75f44b97d761a4f7af63bb835018dc15</string>
+              <string>5a21a7f3522ce43e6632afee542f3c274c932e87116f813441bef8020e791f15eb146116fcbc8c0d80e145fd30e7b9187af8250400058a0d6370dd380b3e5dd7</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.1.2130/minizip_ng-4.0.1-windows64-2130.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/149/packages/generic/minizip-ng/4.0.4.2352/minizip_ng-4.0.4-windows64-2352.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
@@ -185,7 +185,7 @@
         <key>copyright</key>
         <string>Copyright (C) 2010-2021 Nathan Moinvaziri</string>
         <key>version</key>
-        <string>4.0.1</string>
+        <string>4.0.4</string>
         <key>name</key>
         <string>minizip-ng</string>
         <key>canonical_repo</key>

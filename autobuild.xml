@@ -16,11 +16,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>ffb6ec03b4bef29fafccefcb426cb4b864345187298ce6c1891c385b00f3c50d5e77e898a1aa4e68e19b858cd76079b29b683394f3ece656d9d228814303f326</string>
+              <string>ffad92659d5168a67c937ab7c0c10ae3b645026ec2d0fbb4385bf24adf728d6cbc190c0cfcf8dad1280038b4d6edbefcfd5c876e75ad233cee4aa6f8afc215fd</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.84.0.2349/boost-1.84.0-darwin64-2349.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.85.0.2464/boost-1.85.0-darwin64-2464.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -30,11 +30,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>ee416cc9a146bcbc594a2cd9b4152d7e85b408db5b64912dc0f1b4603cfe1ff9755eb29139353ae44942dcda2915797a6c6175fe3c7b4ea37070172ac13b7722</string>
+              <string>507a60cb4e34cd0cdc680a0a015be4477a6c45a0ac4bbb28e5784bd640a377f0422a0e8ce2f6731a6f2dd2501c3589b50af8f1d8282d61683a61e4fe630414a5</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.84.0.2349/boost-1.84.0-linux64-2349.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.85.0.2464/boost-1.85.0-linux64-2464.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -44,11 +44,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>4e438e5e9adb78ae9c0175ee6f7909be6ebd7e4e2a50be4f580228521c8f6638ecbfd694f4eb7ec6f476d6e7a4c938ae19854e71e68e21d73b5276c6800e4607</string>
+              <string>c75fcb9a1ff3f94d7f065b130095fb6e08072b4af8ccc8811f19de0a862cfe2210aec684286898fc6332ee42eb6aa5f4ca2236f2ec26632b6511f8853be4ed19</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.84.0.2349/boost-1.84.0-windows64-2349.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/92/packages/generic/boost/1.85.0.2464/boost-1.85.0-windows64-2464.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
@@ -61,7 +61,7 @@
         <key>copyright</key>
         <string>(see individual source files)</string>
         <key>version</key>
-        <string>1.84.0</string>
+        <string>1.85.0</string>
         <key>name</key>
         <string>boost</string>
         <key>canonical_repo</key>
@@ -78,11 +78,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>24805ed312b53a79bbe1b1eaaa9c1373fc633bbc8c52823ebc976832754779732c1d889185f552b91cc000abff3a4b60bd8add580dd9266c8d2c5c3d215b3d69</string>
+              <string>53c956b41b49e85afc14d624eb8ba481ee82d76c39a96b22ccddd45eb2cbc4dc8aab7e6b90ffa7130f867bf7f417b29fd0d505e8fa98a467ad286f569dfb0422</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.5.2350/libxml2-2.12.5-darwin64-2350.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.6.2466/libxml2-2.12.6-darwin64-2466.tar.zst</string>
             </map>
             <key>name</key>
             <string>darwin64</string>
@@ -92,11 +92,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>85a5e1d8ce32ea6978cd60983e1df90ae99c00649b16ab27147ef80af90e174e9a87b4493b873f423b84f16836a4c0a3f0a3e5e3faee8996c53daf1b2e4d4894</string>
+              <string>259cff974f929d14fc33c0bbede25893f521f99acc2fbc43c9df9b581ce4e09d704cc7cb2e79f52189b6b6646862945ac865a8385e63d15b6a640779c88321c5</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.5.2350/libxml2-2.12.5-linux64-2350.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.6.2466/libxml2-2.12.6-linux64-2466.tar.zst</string>
             </map>
             <key>name</key>
             <string>linux64</string>
@@ -106,11 +106,11 @@
             <key>archive</key>
             <map>
               <key>hash</key>
-              <string>3057154cfbf223e2838b947735591e3137e70180bc8e25831e9731b40f1accd3a73a96850f5a0150e31b7e6af032729d1b6255ace8d2c7107e509899508c9a73</string>
+              <string>d85a920c0a236a02024d49633bf342ad1e34f1925d347bfc01e81ee821531d27034db815edba1f243e5b7b1325fbeaee84d3f9e212e9ffa88180ca4d7c3d8151</string>
               <key>hash_algorithm</key>
               <string>blake2b</string>
               <key>url</key>
-              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.5.2350/libxml2-2.12.5-windows64-2350.tar.zst</string>
+              <string>https://git.alchemyviewer.org/api/v4/projects/97/packages/generic/libxml2/2.12.6.2466/libxml2-2.12.6-windows64-2466.tar.zst</string>
             </map>
             <key>name</key>
             <string>windows64</string>
@@ -123,7 +123,7 @@
         <key>copyright</key>
         <string>Copyright (C) 1998-2012 Daniel Veillard.  All Rights Reserved.</string>
         <key>version</key>
-        <string>2.12.5</string>
+        <string>2.12.6</string>
         <key>name</key>
         <string>libxml2</string>
         <key>canonical_repo</key>

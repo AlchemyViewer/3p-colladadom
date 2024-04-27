@@ -108,7 +108,9 @@ daeMetaElement::addContentsOrder(daeInt offset)
 	meaa->setContainer( this);
 
     if (_metaContentsOrder)
+	{
         delete _metaContentsOrder;
+	}
 
 	_metaContentsOrder = meaa;
 }
@@ -122,7 +124,9 @@ void daeMetaElement::addCMDataArray(daeInt offset, daeUInt numChoices)
 	meaa->setContainer( this);
 
     if (_metaCMData)
+	{
         delete _metaCMData;
+	}
 
 	_metaCMData = meaa;
 

@@ -107,26 +107,16 @@ case "$AUTOBUILD_PLATFORM" in
     ;;
 
     darwin*)
-        # Deploy Targets
-        X86_DEPLOY=11.0
-        ARM64_DEPLOY=11.0
-
         # Setup build flags
-        ARCH_FLAGS_X86="-arch x86_64 -mmacosx-version-min=${X86_DEPLOY} -msse4.2"
-        ARCH_FLAGS_ARM64="-arch arm64 -mmacosx-version-min=${ARM64_DEPLOY}"
-        DEBUG_COMMON_FLAGS="-O0 -g -fPIC -DPIC -fvisibility=hidden"
-        RELEASE_COMMON_FLAGS="-O3 -g -fPIC -DPIC -fstack-protector-strong -fvisibility=hidden"
-        DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
-        RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
-        DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"
-        RELEASE_CXXFLAGS="$RELEASE_COMMON_FLAGS -std=c++17"
-        DEBUG_CPPFLAGS="-DPIC"
-        RELEASE_CPPFLAGS="-DPIC"
-        DEBUG_LDFLAGS="-Wl,-headerpad_max_install_names"
-        RELEASE_LDFLAGS="-Wl,-headerpad_max_install_names"
+        C_OPTS_X86="-arch x86_64 $LL_BUILD_RELEASE_CFLAGS"
+        C_OPTS_ARM64="-arch arm64 $LL_BUILD_RELEASE_CFLAGS"
+        CXX_OPTS_X86="-arch x86_64 $LL_BUILD_RELEASE_CXXFLAGS"
+        CXX_OPTS_ARM64="-arch arm64 $LL_BUILD_RELEASE_CXXFLAGS"
+        LINK_OPTS_X86="-arch x86_64 $LL_BUILD_RELEASE_LINKER"
+        LINK_OPTS_ARM64="-arch arm64 $LL_BUILD_RELEASE_LINKER"
 
-        # x86 Deploy Target
-        export MACOSX_DEPLOYMENT_TARGET=${X86_DEPLOY}
+        # deploy target
+        export MACOSX_DEPLOYMENT_TARGET=${LL_BUILD_DARWIN_BASE_DEPLOY_TARGET}
 
         libdir="$top/stage"
 
@@ -138,9 +128,9 @@ case "$AUTOBUILD_PLATFORM" in
 
         make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
-            CFLAGS="$ARCH_FLAGS_X86 $RELEASE_CFLAGS" \
-            CXXFLAGS="$ARCH_FLAGS_X86 $RELEASE_CXXFLAGS" \
-            LDFLAGS="$ARCH_FLAGS_X86 $RELEASE_LDFLAGS" \
+            CFLAGS="$C_OPTS_X86" \
+            CXXFLAGS="$CXX_OPTS_X86" \
+            LDFLAGS="$LINK_OPTS_X86" \
             arch="x86_64" \
             printCommands=yes \
             printMessages=yes
@@ -156,9 +146,9 @@ case "$AUTOBUILD_PLATFORM" in
 
         make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
-            CFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_CFLAGS" \
-            CXXFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_CXXFLAGS" \
-            LDFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_LDFLAGS" \
+            CFLAGS="$C_OPTS_ARM64" \
+            CXXFLAGS="$CXX_OPTS_ARM64" \
+            LDFLAGS="$LINK_OPTS_ARM64" \
             arch="arm64" \
             printCommands=yes \
             printMessages=yes
@@ -177,16 +167,25 @@ case "$AUTOBUILD_PLATFORM" in
     ;;
 
     linux*)
+        # Linux build environment at Linden comes pre-polluted with stuff that can
+        # seriously damage 3rd-party builds.  Environmental garbage you can expect
+        # includes:
+        #
+        #    DISTCC_POTENTIAL_HOSTS     arch           root        CXXFLAGS
+        #    DISTCC_LOCATION            top            branch      CC
+        #    DISTCC_HOSTS               build_name     suffix      CXX
+        #    LSDISTCC_ARGS              repo           prefix      CFLAGS
+        #    cxx_version                AUTOBUILD      SIGN        CPPFLAGS
+        #
+        # So, clear out bits that shouldn't affect our configure-directed build
+        # but which do nonetheless.
+        #
+        unset DISTCC_HOSTS CFLAGS CPPFLAGS CXXFLAGS
+
         # Default target per --address-size
-        opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE}"
-        DEBUG_COMMON_FLAGS="$opts -Og -g -fPIC -DPIC"
-        RELEASE_COMMON_FLAGS="$opts -O3 -g -fPIC -fstack-protector-strong -DPIC -D_FORTIFY_SOURCE=2"
-        DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
-        RELEASE_CFLAGS="$RELEASE_COMMON_FLAGS"
-        DEBUG_CXXFLAGS="$DEBUG_COMMON_FLAGS -std=c++17"
-        RELEASE_CXXFLAGS="$RELEASE_COMMON_FLAGS -std=c++17"
-        DEBUG_CPPFLAGS="-DPIC"
-        RELEASE_CPPFLAGS="-DPIC -D_FORTIFY_SOURCE=2"
+        opts_ld="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE}"
+        opts_c="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE $LL_BUILD_RELEASE_CFLAGS}"
+        opts_cxx="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE $LL_BUILD_RELEASE_CXXFLAGS}"
         
         # Handle any deliberate platform targeting
         if [ -z "${TARGET_CPPFLAGS:-}" ]; then
@@ -205,9 +204,9 @@ case "$AUTOBUILD_PLATFORM" in
 
         make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
-            LDFLAGS="$opts" \
-            CFLAGS="$RELEASE_CFLAGS" \
-            CXXFLAGS="$RELEASE_CXXFLAGS" \
+            LDFLAGS="$opts_ld" \
+            CFLAGS="$opts_c" \
+            CXXFLAGS="$opts_cxx" \
             arch="$AUTOBUILD_CONFIGURE_ARCH"
 
         # conditionally run unit tests

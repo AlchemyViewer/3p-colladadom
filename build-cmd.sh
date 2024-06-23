@@ -27,9 +27,6 @@ source_environment_tempfile="$stage/source_environment.sh"
 "$autobuild" source_environment > "$source_environment_tempfile"
 . "$source_environment_tempfile"
 
-[ -f "$stage"/packages/include/zlib/zlib.h ] || \
-{ echo "You haven't yet run autobuild install." 1>&2 ; exit 1; }
-
 # There are two version numbers mixed up in the code below: the collada
 # version (e.g. 1.4, upstream from colladadom?) and the dom version (e.g. 2.3,
 # the version number we associate with this package). Get versions from
@@ -110,17 +107,13 @@ case "$AUTOBUILD_PLATFORM" in
     ;;
 
     darwin*)
-        # Setup osx sdk platform
-        SDKNAME="macosx"
-        export SDKROOT=$(xcodebuild -version -sdk ${SDKNAME} Path)
-
         # Deploy Targets
-        X86_DEPLOY=10.15
+        X86_DEPLOY=11.0
         ARM64_DEPLOY=11.0
 
         # Setup build flags
-        ARCH_FLAGS_X86="-arch x86_64 -mmacosx-version-min=${X86_DEPLOY} -isysroot ${SDKROOT} -msse4.2"
-        ARCH_FLAGS_ARM64="-arch arm64 -mmacosx-version-min=${ARM64_DEPLOY} -isysroot ${SDKROOT}"
+        ARCH_FLAGS_X86="-arch x86_64 -mmacosx-version-min=${X86_DEPLOY} -msse4.2"
+        ARCH_FLAGS_ARM64="-arch arm64 -mmacosx-version-min=${ARM64_DEPLOY}"
         DEBUG_COMMON_FLAGS="-O0 -g -fPIC -DPIC -fvisibility=hidden"
         RELEASE_COMMON_FLAGS="-O3 -g -fPIC -DPIC -fstack-protector-strong -fvisibility=hidden"
         DEBUG_CFLAGS="$DEBUG_COMMON_FLAGS"
@@ -137,30 +130,9 @@ case "$AUTOBUILD_PLATFORM" in
 
         libdir="$top/stage"
 
-        mkdir -p "$libdir"/lib/debug
         mkdir -p "$libdir"/lib/release
-        mkdir -p "$libdir"/debug_x86
-        mkdir -p "$libdir"/debug_arm64
         mkdir -p "$libdir"/release_x86
         mkdir -p "$libdir"/release_arm64
-
-        make clean arch="x86_64" # Hide 'arch' env var
-
-        make -j$AUTOBUILD_CPU_COUNT \
-            conf=debug \
-            CFLAGS="$ARCH_FLAGS_X86 $DEBUG_CFLAGS" \
-            CXXFLAGS="$ARCH_FLAGS_X86 $DEBUG_CXXFLAGS" \
-            LDFLAGS="$ARCH_FLAGS_X86 $DEBUG_LDFLAGS" \
-            arch="x86_64" \
-            printCommands=yes \
-            printMessages=yes
-
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            "build/mac-${collada_version}-d/domTest" -all
-        fi
-
-        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/debug_x86/
 
         make clean arch="x86_64" # Hide 'arch' env var
 
@@ -182,27 +154,6 @@ case "$AUTOBUILD_PLATFORM" in
 
         make clean arch="x86_64" # Hide 'arch' env var
 
-        # ARM64 Deploy Target
-        export MACOSX_DEPLOYMENT_TARGET=${ARM64_DEPLOY}
-
-        make -j$AUTOBUILD_CPU_COUNT \
-            conf=debug \
-            CFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_CFLAGS" \
-            CXXFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_CXXFLAGS" \
-            LDFLAGS="$ARCH_FLAGS_ARM64 $DEBUG_LDFLAGS" \
-            arch="arm64" \
-            printCommands=yes \
-            printMessages=yes
-
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            "build/mac-${collada_version}-d/domTest" -all
-        fi
-
-        cp -a "build/mac-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/debug_arm64/
-
-        make clean arch="arm64" # Hide 'arch' env var
-
         make -j$AUTOBUILD_CPU_COUNT \
             conf=release \
             CFLAGS="$ARCH_FLAGS_ARM64 $RELEASE_CFLAGS" \
@@ -222,7 +173,6 @@ case "$AUTOBUILD_PLATFORM" in
         make clean arch="arm64" # Hide 'arch' env var
 
         # create fat libraries
-        lipo -create ${stage}/debug_x86/libcollada${collada_shortver}dom-d.a ${stage}/debug_arm64/libcollada${collada_shortver}dom-d.a -output ${stage}/lib/debug/libcollada${collada_shortver}dom-d.a
         lipo -create ${stage}/release_x86/libcollada${collada_shortver}dom.a ${stage}/release_arm64/libcollada${collada_shortver}dom.a -output ${stage}/lib/release/libcollada${collada_shortver}dom.a
     ;;
 
@@ -249,25 +199,7 @@ case "$AUTOBUILD_PLATFORM" in
 
         libdir="$top/stage"
 
-        mkdir -p "$libdir"/lib/debug
-
-        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
-
-        make -j$AUTOBUILD_CPU_COUNT \
-            conf=debug \
-            LDFLAGS="$opts" \
-            CFLAGS="$DEBUG_CFLAGS" \
-            CXXFLAGS="$DEBUG_CXXFLAGS" \
-            arch="$AUTOBUILD_CONFIGURE_ARCH"
-
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            "build/linux-${collada_version}-d/domTest" -all
-        fi
-
-        cp -a "build/linux-${collada_version}-d/libcollada${collada_shortver}dom-d.a" "$libdir"/lib/debug/
-    
-        mkdir -p "$libdir"/lib/release
+        mkdir -p "$libdir"/lib/
 
         make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
 
@@ -283,7 +215,7 @@ case "$AUTOBUILD_PLATFORM" in
             "build/linux-${collada_version}/domTest" -all
         fi
 
-        cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/release/
+        cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/
     ;;
 esac
 

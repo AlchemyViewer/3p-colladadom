@@ -16,6 +16,7 @@ includeOpts := -Istage/packages/include \
 	-Iinclude/$(colladaVersion)
 
 # Favor autobuild dependencies
+libOpts += -Lstage/packages/lib/
 libOpts += -Lstage/packages/lib/$(conf)/
 
 ifneq ($(findstring $(os),linux mac),)
@@ -54,16 +55,22 @@ else
 debug_suffix = ""
 endif
 
+ifeq ($(os),linux)
+libOpts += stage/packages/lib/libboost_system-mt$(debug_suffix)$(archsupport).a
+libOpts += stage/packages/lib/libboost_regex-mt$(debug_suffix)$(archsupport).a
+libOpts += stage/packages/lib/libboost_filesystem-mt$(debug_suffix)$(archsupport).a
+else
 libOpts += stage/packages/lib/$(conf)/libboost_system-mt$(debug_suffix)$(archsupport).a
 libOpts += stage/packages/lib/$(conf)/libboost_regex-mt$(debug_suffix)$(archsupport).a
-libOpts += stage/packages/lib/$(conf)/libboost_filesystem-mt$(debug_suffix)$(archsupport).a 
+libOpts += stage/packages/lib/$(conf)/libboost_filesystem-mt$(debug_suffix)$(archsupport).a
+endif
 endif
 
 # minizip
 libOpts += -lminizip
 # as we link minizip static on osx, we need to link against zlib, too.
 ifneq ($(findstring $(os),linux mac),)
-libOpts += -lz
+libOpts += -lz -lzstd
 endif
 
 # output

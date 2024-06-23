@@ -35,6 +35,7 @@ includeOpts += -Istage/packages/include \
 	-Istage/packages/include/zlib \
 	-Istage/packages/include/libxml2 \
 	-Istage/packages/include/minizip
+libOpts += -Lstage/packages/lib/
 libOpts += -Lstage/packages/lib/$(conf)/
 
 ifeq ($(installTest),)

@@ -227,6 +227,3 @@ cp -a LICENSE stage/LICENSES/collada.txt
 
 ## mkdir -p stage/LICENSES/collada-other
 cp -a license/tinyxml-license.txt stage/LICENSES/tinyxml.txt
-
-mkdir -p stage/docs/colladadom/
-cp -a README.Linden stage/docs/colladadom/

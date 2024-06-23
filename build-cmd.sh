@@ -223,7 +223,7 @@ mkdir -p stage/include/collada
 cp -a include/* stage/include/collada
 
 mkdir -p stage/LICENSES
-cp -a license.txt stage/LICENSES/collada.txt
+cp -a LICENSE stage/LICENSES/collada.txt
 
 ## mkdir -p stage/LICENSES/collada-other
 cp -a license/tinyxml-license.txt stage/LICENSES/tinyxml.txt

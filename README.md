@@ -1,4 +1,11 @@
-Collada DOM 2.2.1
+# 3p-colladadom
+
+[Autobuild][] packaged [collada-dom][].
+
+[Autobuild]: https://github.com/secondlife/autobuild
+[collada-dom]: https://sourceforge.net/projects/collada-dom/
+
+# Collada DOM 2.2.1
 
 Documentation is available online at
 http://collada.org/mediawiki/index.php/Portal:COLLADA_DOM

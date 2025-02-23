@@ -19,8 +19,6 @@
 
 #ifndef NO_BOOST
 #include <boost/filesystem.hpp> // THIS WAS NOT COMMENTED.
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
 #endif
 
 #include <cstdio> // for tmpnam
@@ -120,7 +118,7 @@ list<string> cdom::makeStringList(const char* s, ...) {
 	va_end(args);
 	return result;
 }
-#endif 0
+#endif
 
 string cdom::getCurrentDir() {
 #ifdef __CELLOS_LV2__
@@ -154,6 +152,9 @@ char cdom::getFileSeparator() {
 }
 #ifndef NO_BOOST
 const string& cdom::getSystemTmpDir() {
+#ifndef NO_BOOST
+	static string tmpDir = boost::filesystem::temp_directory_path().string();
+#else
 #ifdef WIN32
     static string tmpDir = string(getenv("TMP")) + getFileSeparator();
 #elif defined(__linux__) || defined(__linux)
@@ -165,19 +166,19 @@ static string tmpDir = string(getenv("TMPDIR"));
 #else
 #error tmp dir for your system unknown
 #endif
+#endif
     return tmpDir;
 }
 
 string cdom::getRandomFileName() {
+#ifndef NO_BOOST
+	return boost::filesystem::unique_path().string();
+#else
+
     std::string randomSegment;
     // have to createa a buffer in order to make it multi-thread safe
-#ifdef NO_BOOST
     std::string tmpbuffer; tmpbuffer.resize(L_tmpnam*2+1);
     std::string tmp(tmpnam(&tmpbuffer[0]));
-#else
-    boost::uuids::uuid uuid = boost::uuids::random_generator()();
-    std::string tmp(boost::uuids::to_string(uuid));
-#endif
 #ifdef WIN32
     randomSegment = tmp.substr(tmp.find_last_of('\\')+1);
 #elif defined(__linux__) || defined(__linux)
@@ -190,6 +191,7 @@ string cdom::getRandomFileName() {
 #error  usage of tmpnam() for your system unknown
 #endif
     return randomSegment;
+#endif
 }
 
 const string& cdom::getSafeTmpDir() {

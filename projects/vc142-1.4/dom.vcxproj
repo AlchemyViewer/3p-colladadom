@@ -129,7 +129,7 @@
       <AdditionalOptions>/arch:SSE4.2 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_regex-mt-x64-gd.lib;libboost_filesystem-mt-x64-gd.lib;libboost_system-mt-x64-gd.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2d.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_regex-mt-gd-x64.lib;libboost_filesystem-mt-gd-x64.lib;libboost_system-mt-gd-x64.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>

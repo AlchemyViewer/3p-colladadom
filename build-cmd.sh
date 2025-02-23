@@ -86,6 +86,34 @@ case "$AUTOBUILD_PLATFORM" in
         esac
         projdir="projects/$versub"
 
+        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" dom
+        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" dom-static
+        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" domTest
+
+        # conditionally run unit tests
+        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+            if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+                then
+                    "build/$versub/domTest.exe" -all
+                else
+                    # 64 bit exe ends up in different location to 32 bit hard coded
+                    # path to data directory - source code suggests it looks in a dir
+                    # called domTestData first so we make one
+                    mkdir -p "$projdir/x64/Debug/domTestData"
+                    cp "test/${collada_version}/data"/* "$projdir/x64/Debug/domTestData/"
+                    "$projdir/x64/Debug/domTest.exe" -all
+            fi
+        fi
+
+        # stage the good bits
+        mkdir -p "$stage"/lib/debug
+
+        libname="libcollada${collada_shortver}dom${dom_shortver}-sd.lib"
+        if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+            then cp -a "build/$versub/$libname" "$stage"/lib/debug/
+            else cp -a "$projdir/x64/Debug/$libname" "$stage"/lib/debug/
+        fi
+
         build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" dom
         build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" dom-static
         build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" domTest

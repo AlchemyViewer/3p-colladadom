@@ -118,7 +118,7 @@ list<string> cdom::makeStringList(const char* s, ...) {
 	va_end(args);
 	return result;
 }
-#endif 0
+#endif
 
 string cdom::getCurrentDir() {
 #ifdef __CELLOS_LV2__
@@ -152,6 +152,9 @@ char cdom::getFileSeparator() {
 }
 #ifndef NO_BOOST
 const string& cdom::getSystemTmpDir() {
+#ifndef NO_BOOST
+	static string tmpDir = boost::filesystem::temp_directory_path().string();
+#else
 #ifdef WIN32
     static string tmpDir = string(getenv("TMP")) + getFileSeparator();
 #elif defined(__linux__) || defined(__linux)
@@ -163,10 +166,15 @@ static string tmpDir = string(getenv("TMPDIR"));
 #else
 #error tmp dir for your system unknown
 #endif
+#endif
     return tmpDir;
 }
 
 string cdom::getRandomFileName() {
+#ifndef NO_BOOST
+	return boost::filesystem::unique_path().string();
+#else
+
     std::string randomSegment;
     // have to createa a buffer in order to make it multi-thread safe
     std::string tmpbuffer; tmpbuffer.resize(L_tmpnam*2+1);
@@ -183,6 +191,7 @@ string cdom::getRandomFileName() {
 #error  usage of tmpnam() for your system unknown
 #endif
     return randomSegment;
+#endif
 }
 
 const string& cdom::getSafeTmpDir() {

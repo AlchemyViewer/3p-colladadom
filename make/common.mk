@@ -20,9 +20,13 @@ debugSuffix :=
 endif
 
 ifeq ($(arch),x86_64)
-archsupport := -x64
+archsupport := generic
+else ifeq ($(arch),sse)
+archsupport := sse
+else ifeq ($(arch),avx2)
+archsupport := avx2
 else ifeq ($(arch),arm64)
-archsupport := -a64
+archsupport := arm64
 else
 archsupport :=
 endif

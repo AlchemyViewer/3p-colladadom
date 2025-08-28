@@ -27,6 +27,9 @@ source_environment_tempfile="$stage/source_environment.sh"
 "$autobuild" source_environment > "$source_environment_tempfile"
 . "$source_environment_tempfile"
 
+# remove_cxxstd apply_patch
+source "$(dirname "$AUTOBUILD_VARIABLES_FILE")/functions"
+
 [ -f "$stage"/packages/include/minizip-ng/zip.h ] || \
 { echo "You haven't yet run autobuild install." 1>&2 ; exit 1; }
 
@@ -209,23 +212,32 @@ case "$AUTOBUILD_PLATFORM" in
         fi
 
         libdir="$top/stage"
-        mkdir -p "$libdir"/lib/release
 
-        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
+        for arch in sse avx2 ; do
+            # Default target per autobuild build --address-size
+            opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE $LL_BUILD_RELEASE}"
+            if [[ "$arch" == "avx2" ]]; then
+                opts="$(replace_switch -march=x86-64-v2 -march=x86-64-v3 $opts)"
+            fi
+            plainopts="$(remove_cxxstd $opts)"
 
-        make -j$(nproc) \
-            conf=release \
-            LDFLAGS="$opts" \
-            CFLAGS="$opts" \
-            CXXFLAGS="$opts" \
-            arch="$AUTOBUILD_CONFIGURE_ARCH"
+            make clean arch="$arch" # Hide 'arch' env var
 
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            "build/linux-${collada_version}/domTest" -all
-        fi
+            make -j$AUTOBUILD_CPU_COUNT \
+                conf=release \
+                LDFLAGS="$opts" \
+                CFLAGS="$plainopts" \
+                CXXFLAGS="$opts" \
+                arch="$arch"
 
-        cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/release/
+            # conditionally run unit tests
+            if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+                "build/linux-${collada_version}/domTest" -all
+            fi
+
+            mkdir -p "$libdir"/lib/$arch/release
+            cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/$arch/release/
+        done
     ;;
 esac
 

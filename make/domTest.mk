@@ -35,7 +35,12 @@ includeOpts += -Istage/packages/include \
 	-Istage/packages/include/zlib-ng \
 	-Istage/packages/include/libxml2 \
 	-Istage/packages/include/minizip-ng
+ifeq ($(os),linux)
+libOpts += -Lstage/packages/lib/$(archsupport)/$(conf)/
+else
 libOpts += -Lstage/packages/lib/$(conf)/
+endif
+
 
 ifeq ($(installTest),)
 includeOpts += -Iinclude -Iinclude/$(colladaVersion)
@@ -57,16 +62,12 @@ endif
 
 # Boost defs
 ifeq ($(os),linux)
-libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
-libOpts += -lboost_regex-mt$(archsupport)$(debugSuffix)
+libOpts += -lboost_filesystem
 else ifeq ($(os),mac)
-libOpts += -lboost_filesystem-mt$(archsupport)$(debugSuffix)
-libOpts += -lboost_regex-mt$(archsupport)$(debugSuffix)
+libOpts += -lboost_filesystem
 else
 includeOpts += -Iexternal-libs/boost
-libOpts += external-libs/boost/lib/$(buildID)/libboost_system$(archsupport).a
 libOpts += external-libs/boost/lib/$(buildID)/libboost_filesystem$(archsupport).a
-libOpts += external-libs/boost/lib/$(buildID)/libboost_regex$(archsupport).a
 endif
 ifeq ($(os),ps3)
 # PS3 doesn't support C++ locales, so tell boost not to use them

@@ -49,6 +49,7 @@ ifeq ($(os),linux)
 #enforce 32-bit builds, even when building on 64-bit machines
 ## no, don't - nat 2016-03-29
 ##ccFlags += -m32
+libOpts += -Wl,--exclude-libs,ALL
 endif
 
 ifeq ($(colladaVersion),1.4)

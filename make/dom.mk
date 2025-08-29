@@ -16,7 +16,11 @@ includeOpts := -Istage/packages/include \
 	-Iinclude/$(colladaVersion)
 
 # Favor autobuild dependencies
+ifeq ($(os),linux)
+libOpts += -Lstage/packages/lib/$(archsupport)/$(conf)/
+else
 libOpts += -Lstage/packages/lib/$(conf)/
+endif
 
 ifneq ($(findstring $(os),linux mac),)
 ccFlags += -fPIC
@@ -48,16 +52,11 @@ endif
 # For mingw: add boost
 ifneq ($(findstring $(os),linux mac),)
 includeOpts += -Istage/packages/include
-ifeq ($(conf),debug)
-debug_suffix = "-d"
+ifeq ($(os),linux)
+libOpts += stage/packages/lib/$(archsupport)/$(conf)/libboost_filesystem.a 
 else
-debug_suffix = ""
+libOpts += stage/packages/lib/$(conf)/libboost_filesystem.a 
 endif
-# Boost 1.72 delivers libboost_[file]system-mt-x64.a, and we're getting link
-# errors about missing libboost_[file]system-mt.a. Hence $(archsupport).
-libOpts += stage/packages/lib/$(conf)/libboost_system-mt$(archsupport)$(debug_suffix).a
-libOpts += stage/packages/lib/$(conf)/libboost_filesystem-mt$(archsupport)$(debug_suffix).a 
-libOpts += stage/packages/lib/$(conf)/libboost_regex-mt$(archsupport)$(debug_suffix).a 
 endif
 
 # minizip

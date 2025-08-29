@@ -113,7 +113,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInputLocalOffset_complexType &operator=( const domInputLocalOffset_complexType &cpy ) { (void)cpy; return *this; }
+	domInputLocalOffset_complexType &operator=(const domInputLocalOffset_complexType&) { return *this; }
 };
 
 /**
@@ -193,7 +193,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInputLocalOffset &operator=( const domInputLocalOffset &cpy ) { (void)cpy; return *this; }
+	domInputLocalOffset &operator=(const domInputLocalOffset&) { return *this; }
 
 public: // STATIC METHODS
 	/**

@@ -94,7 +94,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_surface_init_from_common_complexType &operator=( const domFx_surface_init_from_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_surface_init_from_common_complexType &operator=(const domFx_surface_init_from_common_complexType&) { return *this; }
 };
 
 /**
@@ -153,7 +153,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_surface_init_from_common &operator=( const domFx_surface_init_from_common &cpy ) { (void)cpy; return *this; }
+	domFx_surface_init_from_common &operator=(const domFx_surface_init_from_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

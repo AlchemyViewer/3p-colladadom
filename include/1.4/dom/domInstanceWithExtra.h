@@ -114,7 +114,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInstanceWithExtra_complexType &operator=( const domInstanceWithExtra_complexType &cpy ) { (void)cpy; return *this; }
+	domInstanceWithExtra_complexType &operator=(const domInstanceWithExtra_complexType&) { return *this; }
 };
 
 /**
@@ -183,7 +183,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domInstanceWithExtra &operator=( const domInstanceWithExtra &cpy ) { (void)cpy; return *this; }
+	domInstanceWithExtra &operator=(const domInstanceWithExtra&) { return *this; }
 
 public: // STATIC METHODS
 	/**

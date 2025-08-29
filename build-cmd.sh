@@ -27,6 +27,9 @@ source_environment_tempfile="$stage/source_environment.sh"
 "$autobuild" source_environment > "$source_environment_tempfile"
 . "$source_environment_tempfile"
 
+# remove_cxxstd apply_patch
+source "$(dirname "$AUTOBUILD_VARIABLES_FILE")/functions"
+
 [ -f "$stage"/packages/include/minizip-ng/zip.h ] || \
 { echo "You haven't yet run autobuild install." 1>&2 ; exit 1; }
 
@@ -86,61 +89,72 @@ case "$AUTOBUILD_PLATFORM" in
         esac
         projdir="projects/$versub"
 
-        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" dom
-        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" dom-static
-        build_sln "$projdir/dom.sln" "Debug|$AUTOBUILD_WIN_VSPLATFORM" domTest
-
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
-                then
-                    "build/$versub/domTest.exe" -all
-                else
-                    # 64 bit exe ends up in different location to 32 bit hard coded
-                    # path to data directory - source code suggests it looks in a dir
-                    # called domTestData first so we make one
-                    mkdir -p "$projdir/x64/Debug/domTestData"
-                    cp "test/${collada_version}/data"/* "$projdir/x64/Debug/domTestData/"
-                    "$projdir/x64/Debug/domTest.exe" -all
+        for arch in sse avx2 arm64 ; do
+            platform_target="x64"
+            proj_suffix=""
+            if [[ "$arch" == "avx2" ]]; then
+                proj_suffix="_avx2"
+            elif [[ "$arch" == "arm64" ]]; then
+                platform_target="ARM64"
             fi
-        fi
 
-        # stage the good bits
-        mkdir -p "$stage"/lib/debug
 
-        libname="libcollada${collada_shortver}dom${dom_shortver}-sd.lib"
-        if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
-            then cp -a "build/$versub/$libname" "$stage"/lib/debug/
-            else cp -a "$projdir/x64/Debug/$libname" "$stage"/lib/debug/
-        fi
+            build_sln "$projdir/dom.sln" "Debug$proj_suffix|$platform_target" dom
+            build_sln "$projdir/dom.sln" "Debug$proj_suffix|$platform_target" dom-static
+            build_sln "$projdir/dom.sln" "Debug$proj_suffix|$platform_target" domTest
 
-        build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" dom
-        build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" dom-static
-        build_sln "$projdir/dom.sln" "Release|$AUTOBUILD_WIN_VSPLATFORM" domTest
-
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
-                then
-                    "build/$versub/domTest.exe" -all
-                else
-                    # 64 bit exe ends up in different location to 32 bit hard coded
-                    # path to data directory - source code suggests it looks in a dir
-                    # called domTestData first so we make one
-                    mkdir -p "$projdir/x64/Release/domTestData"
-                    cp "test/${collada_version}/data"/* "$projdir/x64/Release/domTestData/"
-                    "$projdir/x64/Release/domTest.exe" -all
+            # conditionally run unit tests
+            if [[ "${DISABLE_UNIT_TESTS:-0}" == "0" && "$arch" != "arm64" ]]; then
+                if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+                    then
+                        "build/$versub/domTest.exe" -all
+                    else
+                        # 64 bit exe ends up in different location to 32 bit hard coded
+                        # path to data directory - source code suggests it looks in a dir
+                        # called domTestData first so we make one
+                        mkdir -p "$projdir/$platform_target/Debug$proj_suffix/domTestData"
+                        cp "test/${collada_version}/data"/* "$projdir/$platform_target/Debug$proj_suffix/domTestData/"
+                        "$projdir/$platform_target/Debug$proj_suffix/domTest.exe" -all
+                fi
             fi
-        fi
 
-        # stage the good bits
-        mkdir -p "$stage"/lib/release
+            # stage the good bits
+            mkdir -p "$stage"/lib/$arch/debug
 
-        libname="libcollada${collada_shortver}dom${dom_shortver}-s.lib"
-        if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
-            then cp -a "build/$versub/$libname" "$stage"/lib/release/
-            else cp -a "$projdir/x64/Release/$libname" "$stage"/lib/release/
-        fi
+            libname="libcollada${collada_shortver}dom${dom_shortver}-sd.lib"
+            if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+                then cp -a "build/$versub/$libname" "$stage"/lib/$arch/debug/
+                else cp -a "$projdir/$platform_target/Debug$proj_suffix/$libname" "$stage"/lib/$arch/debug/
+            fi
+
+            build_sln "$projdir/dom.sln" "Release$proj_suffix|$platform_target" dom
+            build_sln "$projdir/dom.sln" "Release$proj_suffix|$platform_target" dom-static
+            build_sln "$projdir/dom.sln" "Release$proj_suffix|$platform_target" domTest
+
+            # conditionally run unit tests
+            if [[ "${DISABLE_UNIT_TESTS:-0}" == "0" && "$arch" != "arm64" ]]; then
+                if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+                    then
+                        "build/$versub/domTest.exe" -all
+                    else
+                        # 64 bit exe ends up in different location to 32 bit hard coded
+                        # path to data directory - source code suggests it looks in a dir
+                        # called domTestData first so we make one
+                        mkdir -p "$projdir/$platform_target/Release$proj_suffix/domTestData"
+                        cp "test/${collada_version}/data"/* "$projdir/$platform_target/Release$proj_suffix/domTestData/"
+                        "$projdir/$platform_target/Release$proj_suffix/domTest.exe" -all
+                fi
+            fi
+
+            # stage the good bits
+            mkdir -p "$stage"/lib/$arch/release
+
+            libname="libcollada${collada_shortver}dom${dom_shortver}-s.lib"
+            if [ "$AUTOBUILD_ADDRSIZE" = 32 ]
+                then cp -a "build/$versub/$libname" "$stage"/lib/$arch/release/
+                else cp -a "$projdir/$platform_target/Release/$libname" "$stage"/lib/$arch/release/
+            fi
+        done
     ;;
 
     darwin*)
@@ -198,23 +212,32 @@ case "$AUTOBUILD_PLATFORM" in
         fi
 
         libdir="$top/stage"
-        mkdir -p "$libdir"/lib/release
 
-        make clean arch="$AUTOBUILD_CONFIGURE_ARCH" # Hide 'arch' env var
+        for arch in sse avx2 ; do
+            # Default target per autobuild build --address-size
+            opts="${TARGET_OPTS:--m$AUTOBUILD_ADDRSIZE $LL_BUILD_RELEASE}"
+            if [[ "$arch" == "avx2" ]]; then
+                opts="$(replace_switch -march=x86-64-v2 -march=x86-64-v3 $opts)"
+            fi
+            plainopts="$(remove_cxxstd $opts)"
 
-        make -j$(nproc) \
-            conf=release \
-            LDFLAGS="$opts" \
-            CFLAGS="$opts" \
-            CXXFLAGS="$opts" \
-            arch="$AUTOBUILD_CONFIGURE_ARCH"
+            make clean arch="$arch" # Hide 'arch' env var
 
-        # conditionally run unit tests
-        if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
-            "build/linux-${collada_version}/domTest" -all
-        fi
+            make -j$AUTOBUILD_CPU_COUNT \
+                conf=release \
+                LDFLAGS="$opts" \
+                CFLAGS="$plainopts" \
+                CXXFLAGS="$opts" \
+                arch="$arch"
 
-        cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/release/
+            # conditionally run unit tests
+            if [ "${DISABLE_UNIT_TESTS:-0}" = "0" ]; then
+                "build/linux-${collada_version}/domTest" -all
+            fi
+
+            mkdir -p "$libdir"/lib/$arch/release
+            cp -a "build/linux-${collada_version}/libcollada${collada_shortver}dom.a" "$libdir"/lib/$arch/release/
+        done
     ;;
 esac
 

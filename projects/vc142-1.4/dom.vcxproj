@@ -1,6 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_AVX2|ARM64">
+      <Configuration>Debug_AVX2</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_AVX2|Win32">
+      <Configuration>Debug_AVX2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_AVX2|x64">
+      <Configuration>Debug_AVX2</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -8,6 +24,22 @@
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_AVX2|ARM64">
+      <Configuration>Release_AVX2</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_AVX2|Win32">
+      <Configuration>Release_AVX2</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_AVX2|x64">
+      <Configuration>Release_AVX2</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -31,7 +63,31 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|ARM64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -42,7 +98,27 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|ARM64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -53,32 +129,110 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\build\vc142-1.4-d\obj\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'">..\..\build\vc142-1.4-d\obj\$(ProjectName)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\build\vc142-1.4-d\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'">..\..\build\vc142-1.4-d\</OutDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|ARM64'">true</LinkIncremental>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\vc142-1.4\obj\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'">..\..\build\vc142-1.4\obj\$(ProjectName)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\vc142-1.4\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'">..\..\build\vc142-1.4\</OutDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|ARM64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libcollada14dom23-d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'">libcollada14dom23-d</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libcollada14dom23-d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">libcollada14dom23-d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|x64'">libcollada14dom23-d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|ARM64'">libcollada14dom23-d</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libcollada14dom23</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'">libcollada14dom23</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libcollada14dom23</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">libcollada14dom23</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|x64'">libcollada14dom23</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|ARM64'">libcollada14dom23</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_regex-mt-x32-gd.lib;libboost_filesystem-mt-x32-gd.lib;libboost_system-mt-x32-gd.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>msvcrt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <OutputFile>$(OutDir)libcollada14dom23-d.dll</OutputFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <SubSystem>NotSet</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -129,6 +283,98 @@
       <AdditionalOptions>/arch:SSE4.2 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
+      <AdditionalDependencies>libxml2d.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\sse\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>msvcrt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <OutputFile>$(OutDir)libcollada14dom23-d.dll</OutputFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>NotSet</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2d.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\arm64\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>msvcrt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <OutputFile>$(OutDir)libcollada14dom23-d.dll</OutputFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>NotSet</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2d.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\avx2\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>msvcrt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
+      <OutputFile>$(OutDir)libcollada14dom23-d.dll</OutputFile>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>NotSet</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_AVX2|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/arch:SSE4.2 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
       <AdditionalDependencies>libxml2d.lib;Bcrypt.lib;wsock32.lib;minizip.lib;libboost_regex-mt-gd-x64.lib;libboost_filesystem-mt-gd-x64.lib;libboost_system-mt-gd-x64.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\debug;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
@@ -139,12 +385,42 @@
       </LinkTimeCodeGeneration>
       <OutputFile>$(OutDir)libcollada14dom23-d.dll</OutputFile>
       <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <SubSystem>NotSet</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_regex-mt-x32.lib;libboost_filesystem-mt-x32.lib;libboost_system-mt-x32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\release;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)libcollada14dom23.dll</OutputFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <SubSystem>NotSet</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -191,7 +467,96 @@
       <AdditionalOptions>/arch:SSE4.2 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_regex-mt-x64.lib;libboost_filesystem-mt-x64.lib;libboost_system-mt-x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\sse\release;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)libcollada14dom23.dll</OutputFile>
+      <SubSystem>NotSet</SubSystem>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\arm64\release;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)libcollada14dom23.dll</OutputFile>
+      <SubSystem>NotSet</SubSystem>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_filesystem.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\stage\packages\lib\avx2\release;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)libcollada14dom23.dll</OutputFile>
+      <SubSystem>NotSet</SubSystem>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX2|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\include;..\..\include\1.4;..\..\stage\packages\include;..\..\stage\packages\include\libxml2;..\..\stage\packages\include\minizip-ng;..\..\stage\packages\include\zlib-ng;..\..\external-libs\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;DOM_EXPORT;DOM_INCLUDE_LIBXML;LIBXML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/arch:SSE4.2 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libxml2.lib;Bcrypt.lib;zlib.lib;wsock32.lib;minizip.lib;libboost_filesystem-mt-x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\stage\packages\lib\release;..\..\external-libs\tinyxml\lib\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
@@ -200,7 +565,6 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(OutDir)libcollada14dom23.dll</OutputFile>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <SubSystem>NotSet</SubSystem>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>

@@ -20,9 +20,13 @@ debugSuffix :=
 endif
 
 ifeq ($(arch),x86_64)
-archsupport := -x64
+archsupport := generic
+else ifeq ($(arch),sse)
+archsupport := sse
+else ifeq ($(arch),avx2)
+archsupport := avx2
 else ifeq ($(arch),arm64)
-archsupport := -a64
+archsupport := arm64
 else
 archsupport :=
 endif
@@ -45,6 +49,7 @@ ifeq ($(os),linux)
 #enforce 32-bit builds, even when building on 64-bit machines
 ## no, don't - nat 2016-03-29
 ##ccFlags += -m32
+libOpts += -Wl,--exclude-libs,ALL
 endif
 
 ifeq ($(colladaVersion),1.4)

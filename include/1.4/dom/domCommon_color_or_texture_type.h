@@ -284,7 +284,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_color_or_texture_type_complexType &operator=( const domCommon_color_or_texture_type_complexType &cpy ) { (void)cpy; return *this; }
+	domCommon_color_or_texture_type_complexType &operator=(const domCommon_color_or_texture_type_complexType&) { return *this; }
 };
 
 /**
@@ -308,7 +308,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_color_or_texture_type &operator=( const domCommon_color_or_texture_type &cpy ) { (void)cpy; return *this; }
+	domCommon_color_or_texture_type &operator=(const domCommon_color_or_texture_type&) { return *this; }
 
 public: // STATIC METHODS
 	/**

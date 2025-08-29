@@ -53,7 +53,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_annotate_common_complexType &operator=( const domFx_annotate_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_annotate_common_complexType &operator=(const domFx_annotate_common_complexType&) { return *this; }
 };
 
 /**
@@ -90,7 +90,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_annotate_common &operator=( const domFx_annotate_common &cpy ) { (void)cpy; return *this; }
+	domFx_annotate_common &operator=(const domFx_annotate_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

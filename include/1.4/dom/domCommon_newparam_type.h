@@ -427,7 +427,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_newparam_type_complexType &operator=( const domCommon_newparam_type_complexType &cpy ) { (void)cpy; return *this; }
+	domCommon_newparam_type_complexType &operator=(const domCommon_newparam_type_complexType&) { return *this; }
 };
 
 /**
@@ -464,7 +464,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domCommon_newparam_type &operator=( const domCommon_newparam_type &cpy ) { (void)cpy; return *this; }
+	domCommon_newparam_type &operator=(const domCommon_newparam_type&) { return *this; }
 
 public: // STATIC METHODS
 	/**

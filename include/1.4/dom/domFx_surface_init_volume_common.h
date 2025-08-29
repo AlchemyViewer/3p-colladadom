@@ -207,7 +207,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_surface_init_volume_common_complexType &operator=( const domFx_surface_init_volume_common_complexType &cpy ) { (void)cpy; return *this; }
+	domFx_surface_init_volume_common_complexType &operator=(const domFx_surface_init_volume_common_complexType&) { return *this; }
 };
 
 /**
@@ -231,7 +231,7 @@ protected:
 	/**
 	 * Overloaded assignment operator
 	 */
-	virtual domFx_surface_init_volume_common &operator=( const domFx_surface_init_volume_common &cpy ) { (void)cpy; return *this; }
+	domFx_surface_init_volume_common &operator=(const domFx_surface_init_volume_common&) { return *this; }
 
 public: // STATIC METHODS
 	/**

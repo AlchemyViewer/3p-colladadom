@@ -372,8 +372,8 @@
           <array>
             <string>lib/sse/debug/*-sd.lib</string>
             <string>lib/avx2/debug/*-sd.lib</string>
-            <string>lib/arm64/release/*-s.lib</string>
-            <string>lib/sse/debug/*-sd.lib</string>
+            <string>lib/arm64/debug/*-sd.lib</string>
+            <string>lib/sse/release/*-s.lib</string>
             <string>lib/avx2/release/*-s.lib</string>
             <string>lib/arm64/release/*-s.lib</string>
           </array>
